@@ -2,7 +2,7 @@
   <img src="https://flyto2.com/logo.png" width="120" alt="Flyto" />
 </p>
 
-<h1 align="center">Flyto</h1>
+<h1 align="center">Flyto2</h1>
 
 <p align="center">
   <b>Automate your browser once. Replay from any step. Never re-run the whole thing again.</b>
