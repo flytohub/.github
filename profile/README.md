@@ -104,14 +104,42 @@ The polished surface over flyto-core. Not a toy, not a beta:
 
 ## 🧰 The rest of the garden
 
+**Products & frontends**
+
 | Repo | What it is |
 |------|------------|
 | [flyto-cortex](https://github.com/flytohub/flyto-cortex) | Knowledge workspace frontend (React 19 + Mantine) |
+| [flyto-app](https://github.com/flytohub/flyto-app) | Mobile Command Center — iOS / Android (Flutter + Riverpod) |
+| [flyto-data](https://github.com/flytohub/flyto-data) | Data Product platform — sell datasets via API (FastAPI + Fuse React) |
+| [flyto-landing-page](https://github.com/flytohub/flyto-landing-page) | Marketing site at [flyto2.com](https://flyto2.com) |
+| [flyto-blog](https://github.com/flytohub/flyto-blog) | Engineering notes, release stories, post-mortems |
+
+**Engines & SDKs**
+
+| Repo | What it is |
+|------|------------|
 | [flyto-engine](https://github.com/flytohub/flyto-engine) | Go backend shared by Cortex (and soon Cloud) |
-| [flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js) | Browser plugins / module packs |
-| [flyto-indexer](https://github.com/flytohub/flyto-indexer) | Code-intelligence MCP server |
-| [flyto-docs](https://github.com/flytohub/flyto-docs) | All-product documentation |
-| [flyto-i18n](https://github.com/flytohub/flyto-i18n) | Shared translations |
+| [flyto-blueprint](https://github.com/flytohub/flyto-blueprint) | Self-evolving workflow pattern engine — 33+ builtin patterns |
+| [flyto-ai](https://github.com/flytohub/flyto-ai) | AI-assisted workflow generation & repair |
+| [flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js) | Plugin SDK + browser plugins (Slack, form-builder, image-crop) |
+| [flyto-indexer](https://github.com/flytohub/flyto-indexer) | Code-intelligence MCP server for IDEs & agents |
+
+**Shared infrastructure**
+
+| Repo | What it is |
+|------|------------|
+| [flyto-docs](https://github.com/flytohub/flyto-docs) | All-product documentation (VitePress, multi-language) |
+| [flyto-i18n](https://github.com/flytohub/flyto-i18n) | Shared translations — single source of truth across products |
+| [flyto-design-tokens](https://github.com/flytohub/flyto-design-tokens) | Color, typography, spacing tokens for every Flyto surface |
+| [flyto-evolution-log](https://github.com/flytohub/flyto-evolution-log) | Public evolution memory — every self-repair attempt + outcome |
+
+**Pro / commercial**
+
+| Repo | What it is |
+|------|------------|
+| [flyto-pro](https://github.com/flytohub/flyto-pro) | Pro-tier extensions — SAML/SCIM, advanced scheduling, audit retention |
+| [flyto-pro-core](https://github.com/flytohub/flyto-pro-core) | Shared Pro infrastructure (licensing, telemetry) |
+| [flyto-modules-pro](https://github.com/flytohub/flyto-modules-pro) | Premium module catalogue — paid integrations & connectors |
 
 ---
 

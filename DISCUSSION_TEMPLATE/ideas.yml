@@ -1,0 +1,37 @@
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Got a half-baked idea? That's fine — Discussions is the right place to
+        sketch it before it becomes a feature request. Don't worry about
+        polish.
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem you're trying to solve
+      description: What's annoying / repetitive / impossible today?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: Rough sketch is fine. ASCII diagrams, example APIs, screenshots — all welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you've thought about
+      description: Other approaches you considered, and why they fall short.
+  - type: dropdown
+    id: scope
+    attributes:
+      label: How big do you think this is?
+      options:
+        - Tiny — UX tweak, single function
+        - Medium — new feature inside an existing repo
+        - Large — new repo / cross-product change
+        - Not sure

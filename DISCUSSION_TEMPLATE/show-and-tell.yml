@@ -1,0 +1,34 @@
+title: "[Show & Tell] "
+labels: ["show-and-tell"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Built something cool with Flyto? Drop it here. We love seeing real
+        workflows, plugins, automations, dashboards, weird hacks — anything.
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you build?
+      description: One paragraph is plenty. Screenshots / GIFs welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How does it work?
+      description: Brief technical sketch. Which Flyto repos / modules / plugins. Anything custom.
+  - type: input
+    id: link
+    attributes:
+      label: Link (optional)
+      description: GitHub repo, blog post, video — wherever the thing lives.
+  - type: dropdown
+    id: shareable
+    attributes:
+      label: Can others reuse it?
+      options:
+        - Open source — anyone can copy
+        - Template / blueprint to share
+        - Closed — just sharing the result
+        - Not sure yet

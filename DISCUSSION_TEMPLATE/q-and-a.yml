@@ -1,0 +1,43 @@
+title: "[Q&A] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Quick check before posting:
+        - Searched existing discussions and issues?
+        - Checked the [docs](https://docs.flyto2.com) and the relevant repo README?
+
+        If yes, ask away — we'd rather see the question twice than not at all.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Which product?
+      options:
+        - flyto-core (CLI / Python engine)
+        - flyto-cloud (web app / desktop)
+        - flyto-cortex (knowledge workspace)
+        - flyto-app (mobile)
+        - flyto-engine (Go backend)
+        - flyto-plugins-js
+        - flyto-data
+        - Other / not sure
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: What are you trying to do?
+      description: Describe the goal first, the obstacle second. The "why" usually unlocks a better answer than the "how".
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What have you tried?
+      description: Code snippets, commands, configs you already attempted. Helps us skip suggestions you've ruled out.
+  - type: input
+    id: version
+    attributes:
+      label: Version / commit
+      description: e.g. flyto-core 0.4.2, or commit SHA
