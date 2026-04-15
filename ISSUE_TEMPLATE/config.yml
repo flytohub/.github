@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question / discussion
+    url: https://github.com/flytohub/flyto-core/discussions
+    about: Not a bug or feature request? Use Discussions — faster, more people see it.
+  - name: Security vulnerability
+    url: https://github.com/flytohub/.github/blob/main/SECURITY.md
+    about: Please DO NOT open a public issue. See SECURITY.md for private reporting.
+  - name: Enterprise / commercial
+    url: mailto:hello@flyto2.com
+    about: Pro / enterprise / partnership enquiries go to hello@flyto2.com.
