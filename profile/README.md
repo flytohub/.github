@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://flyto2.com/logo.png" width="120" alt="Flyto" />
+  <img src="https://flyto2.com/logo.png" width="120" alt="Flyto2" />
 </p>
 
 <h1 align="center">Flyto2</h1>
