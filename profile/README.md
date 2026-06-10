@@ -17,7 +17,7 @@
 
 ---
 
-## Hi 👋 we're Flyto
+## Hi 👋 we're Flyto2
 
 We build two things:
 
