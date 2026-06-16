@@ -130,7 +130,7 @@ The polished surface over flyto-core. Not a toy, not a beta:
 |------|------------|
 | [flyto-docs](https://github.com/flytohub/flyto-docs) | All-product documentation (VitePress, multi-language) |
 | [flyto-i18n](https://github.com/flytohub/flyto-i18n) | Shared translations — single source of truth across products |
-| [flyto-design-tokens](https://github.com/flytohub/flyto-design-tokens) | Color, typography, spacing tokens for every Flyto surface |
+| [flyto-design-tokens](https://github.com/flytohub/flyto-design-tokens) | Color, typography, spacing tokens for every Flyto2 surface |
 | [flyto-evolution-log](https://github.com/flytohub/flyto-evolution-log) | Public evolution memory — every self-repair attempt + outcome |
 
 **Pro / commercial**
