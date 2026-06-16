@@ -1,0 +1,40 @@
+name: "Reusable — CodeQL"
+# Called by each repo's security.yml for Python, JavaScript/TypeScript, and Go.
+# Uploads findings as SARIF to GitHub Security tab (requires contents: read +
+# security-events: write in the calling workflow).
+
+on:
+  workflow_call:
+    inputs:
+      language:
+        description: "CodeQL language: python | javascript | go"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  analyze:
+    name: CodeQL (${{ inputs.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ inputs.language }}
+          queries: security-and-quality
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Run CodeQL analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ inputs.language }}"

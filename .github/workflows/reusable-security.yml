@@ -1,0 +1,126 @@
+name: "Reusable — Security Scan"
+# Called by each repo's security.yml.
+# Runs two independent jobs:
+#   secret-scan   — full-history gitleaks (pinned binary + checksum)
+#   dependency-scan — pip-audit / npm-audit / govulncheck (stack-specific)
+
+on:
+  workflow_call:
+    inputs:
+      stack:
+        description: "Primary tech stack: python | npm | go | static"
+        type: string
+        required: true
+      python-version:
+        type: string
+        default: "3.12"
+      node-version:
+        type: string
+        default: "20"
+
+permissions:
+  contents: read
+
+jobs:
+  secret-scan:
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          fetch-depth: 0  # full history so removed secrets are still caught
+
+      - name: Download and verify gitleaks binary
+        env:
+          GITLEAKS_VERSION: "8.30.1"
+          GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+        run: |
+          set -euo pipefail
+          curl -sSL --retry 3 \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" \
+            -o gitleaks.tgz
+          echo "${GITLEAKS_SHA256}  gitleaks.tgz" | sha256sum -c -
+          tar -xzf gitleaks.tgz gitleaks
+          chmod +x gitleaks
+
+      - name: Scan git history and working tree
+        run: |
+          set -euo pipefail
+          EXTRA=""
+          [ -f .gitleaks.toml ] && EXTRA="-c .gitleaks.toml"
+          ./gitleaks git . $EXTRA --redact --no-banner --exit-code 1
+          ./gitleaks dir . $EXTRA --redact --no-banner --exit-code 1
+
+  dependency-scan:
+    name: Dependency scan (${{ inputs.stack }})
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      # ── Python ──────────────────────────────────────────────────────────────
+      - name: Set up Python
+        if: inputs.stack == 'python'
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
+        with:
+          python-version: ${{ inputs.python-version }}
+
+      - name: pip-audit (Python CVE scan)
+        if: inputs.stack == 'python'
+        run: |
+          set -euo pipefail
+          pip install --quiet pip-audit==2.7.3
+          if [ -f pyproject.toml ] || [ -f setup.py ] || [ -f setup.cfg ]; then
+            python -m venv /tmp/auditvenv
+            /tmp/auditvenv/bin/pip install --quiet --upgrade pip
+            /tmp/auditvenv/bin/pip install --quiet .
+            /tmp/auditvenv/bin/pip freeze > /tmp/resolved.txt
+            pip-audit -r /tmp/resolved.txt --progress-spinner=off
+          elif [ -f requirements.txt ]; then
+            pip-audit -r requirements.txt --progress-spinner=off
+          else
+            echo "No Python manifest found — skipping dependency scan"
+          fi
+
+      # ── npm ─────────────────────────────────────────────────────────────────
+      - name: Set up Node.js
+        if: inputs.stack == 'npm'
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: npm audit (CVE scan)
+        if: inputs.stack == 'npm'
+        run: |
+          set -euo pipefail
+          if [ -f package-lock.json ]; then
+            npm ci --ignore-scripts
+            npm audit --audit-level=high
+          elif [ -f yarn.lock ]; then
+            yarn install --frozen-lockfile --ignore-scripts
+            yarn audit --level high
+          else
+            echo "No lockfile found — skipping npm audit"
+          fi
+
+      # ── Go ──────────────────────────────────────────────────────────────────
+      - name: Set up Go
+        if: inputs.stack == 'go'
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+
+      - name: govulncheck (Go CVE scan)
+        if: inputs.stack == 'go'
+        run: |
+          set -euo pipefail
+          if [ -f go.mod ]; then
+            go install golang.org/x/vuln/cmd/govulncheck@latest
+            govulncheck ./...
+          else
+            echo "No go.mod found — skipping govulncheck"
+          fi
+
+      # ── static / flutter / unknown ──────────────────────────────────────────
+      - name: Skip dependency scan
+        if: inputs.stack == 'static' || inputs.stack == 'flutter'
+        run: echo "Stack '${{ inputs.stack }}' — no dependency scanner applicable."
