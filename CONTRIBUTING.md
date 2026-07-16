@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping Flyto. Org-wide defaults live here. If a repo ships
+Thanks for helping Flyto2. Org-wide defaults live here. If a repo ships
 its own `CONTRIBUTING.md` it takes precedence.
 
 ## Before you start

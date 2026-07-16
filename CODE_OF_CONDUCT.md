@@ -2,7 +2,7 @@
 
 ## Our pledge
 
-We want Flyto to be a project where people can ship good work without
+We want Flyto2 to be a project where people can ship good work without
 dealing with harassment or bad-faith interaction. That applies to
 everyone regardless of background, identity, experience level, or
 employer.
@@ -35,7 +35,7 @@ it here.
 
 Applies in every project space: GitHub repos, discussions, issues, PRs,
 Discord, email threads associated with the project, events we host, and
-any other venue where you are representing Flyto.
+any other venue where you are representing Flyto2.
 
 ## Enforcement
 

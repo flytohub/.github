@@ -11,6 +11,7 @@
 <p align="center">
   <a href="https://flyto2.com">🌐 Website</a> ·
   <a href="https://docs.flyto2.com">📖 Docs</a> ·
+  <a href="https://blog.flyto2.com">📝 Blog</a> ·
   <a href="https://www.youtube.com/@Flyto2">📺 YouTube</a> ·
   <a href="https://github.com/flytohub/flyto-core/discussions">💬 Discussions</a>
 </p>
@@ -61,7 +62,7 @@ We don't force you to organise. You drop things in an Inbox. The engine reads, c
 
 ### [flyto-core](https://github.com/flytohub/flyto-core)
 
-> **A debuggable automation engine.** Trace every step. Replay from any point.
+> **Open-source execution kernel for AI agents.** 451 registry-backed modules, MCP-native transport, trace, evidence, and replay.
 
 Python + Playwright under the hood. Workflows are YAML. Every step emits a trace so failures aren't a black box. Built for:
 
@@ -87,7 +88,7 @@ steps:
 📦 `pip install flyto-core`
 ⭐ [Star on GitHub →](https://github.com/flytohub/flyto-core)
 
-### [flyto-cloud](https://cloud.flyto2.com) — Flyto Automation
+### [flyto-cloud](https://cloud.flyto2.com) — Flyto2 Cloud Automation
 
 > **Workflow automation SaaS + desktop app.** Ship real work, not prototypes.
 
@@ -108,6 +109,8 @@ The polished surface over flyto-core. Not a toy, not a beta:
 
 | Repo | What it is |
 |------|------------|
+| [flyto2](https://github.com/flytohub/flyto2) | Flyto2 Desktop App — visual browser, AI, and API workflow automation |
+| [flyto-warroom](https://github.com/flytohub/flyto-warroom) | Flyto2 Warroom CE — CTEM, attack surface, MCP security, evidence, and security scoring |
 | [flyto-cortex](https://github.com/flytohub/flyto-cortex) | Knowledge workspace frontend (React 19 + Mantine) |
 | [flyto-app](https://github.com/flytohub/flyto-app) | Mobile Command Center — iOS / Android (Flutter + Riverpod) |
 | [flyto-data](https://github.com/flytohub/flyto-data) | Data Product platform — sell datasets via API (FastAPI + Fuse React) |

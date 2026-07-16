@@ -4,7 +4,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Built something cool with Flyto? Drop it here. We love seeing real
+        Built something cool with Flyto2? Drop it here. We love seeing real
         workflows, plugins, automations, dashboards, weird hacks — anything.
   - type: textarea
     id: what
@@ -17,7 +17,7 @@ body:
     id: how
     attributes:
       label: How does it work?
-      description: Brief technical sketch. Which Flyto repos / modules / plugins. Anything custom.
+      description: Brief technical sketch. Which Flyto2 repos / modules / plugins. Anything custom.
   - type: input
     id: link
     attributes:
