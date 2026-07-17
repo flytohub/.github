@@ -18,6 +18,21 @@
 
 ---
 
+## Start here
+
+If you are comparing automation stacks, start with the page that matches your
+question:
+
+- [AI workflow automation platform](https://flyto2.com/) - product overview.
+- [n8n alternative](https://flyto2.com/n8n-alternative/) - browser-heavy
+  workflows, MCP tools, YAML recipes, and evidence.
+- [Zapier alternative](https://flyto2.com/zapier-alternative/) - local or
+  self-hosted workflow automation with proof artifacts.
+- [Playwright alternative](https://flyto2.com/playwright-alternative/) -
+  workflow layer above browser automation.
+- [LangGraph alternative](https://flyto2.com/langgraph-alternative/) -
+  deterministic execution and MCP tools for agents.
+
 ## Hi, we're Flyto2
 
 Flyto2 is for builders who want AI agents to do real work without turning every
