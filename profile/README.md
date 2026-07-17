@@ -18,11 +18,11 @@
 
 ---
 
-## Hi 👋 we're Flyto2
+## Hi, we're Flyto2
 
 We build two things:
 
-### 🤖 Automation that doesn't fall apart when step 8 fails
+### Automation that doesn't fall apart when step 8 fails
 
 > Opening browsers. Waiting for pages. Filling forms. Clicking. Screenshotting.
 > Downloading reports. Pushing data into a sheet.
@@ -46,7 +46,7 @@ flyto recipe competitor-intel --url https://github.com/pricing
   flyto replay --from-step 8
 ```
 
-### 🧠 Turn your chaos pile into a knowledge workspace
+### Turn your chaos pile into a knowledge workspace
 
 > How many "I'll read this later" PDFs are on your laptop?
 > How many "I'm scared to touch this" folders on your NAS?
@@ -58,7 +58,7 @@ We don't force you to organise. You drop things in an Inbox. The engine reads, c
 
 ---
 
-## 🌟 Flagship products
+## Flagship products
 
 ### [flyto-core](https://github.com/flytohub/flyto-core)
 
@@ -103,7 +103,7 @@ The polished surface over flyto-core. Not a toy, not a beta:
 
 ---
 
-## 🧰 The rest of the garden
+## Repository map
 
 **Products & frontends**
 
