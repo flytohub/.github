@@ -5,7 +5,7 @@
 <h1 align="center">Flyto2</h1>
 
 <p align="center">
-  <b>Automate your browser once. Replay from any step. Never re-run the whole thing again.</b>
+  <b>Open-source AI workflow automation for browser tasks, MCP-native agents, and replayable execution.</b>
 </p>
 
 <p align="center">
@@ -20,6 +20,12 @@
 
 ## Hi, we're Flyto2
 
+Flyto2 is for builders who want AI agents to do real work without turning every
+run into a fragile one-off script. If you are comparing an **open-source AI
+agent framework**, a browser automation tool, or an MCP server automation stack,
+start here: Flyto2 gives you deterministic modules, step-by-step traces, and
+replay from the exact place a workflow failed.
+
 We build two things:
 
 ### Automation that doesn't fall apart when step 8 fails
@@ -29,7 +35,9 @@ We build two things:
 >
 > Annoying once a week. Unacceptable thirty times a week.
 
-The real pain isn't writing the script — it's that when step 8 fails, you re-run the whole thing. **We record every step and let you replay from any one of them.**
+The real pain is not writing the script. The real pain is watching it fail near
+the end, then paying the time cost again. **We record every step and let you
+replay from any one of them.**
 
 ```bash
 pip install flyto-core[browser] && playwright install chromium
@@ -62,7 +70,7 @@ We don't force you to organise. You drop things in an Inbox. The engine reads, c
 
 ### [flyto-core](https://github.com/flytohub/flyto-core)
 
-> **Open-source execution kernel for AI agents.** 451 registry-backed modules, MCP-native transport, trace, evidence, and replay.
+> **Open-source AI workflow automation engine.** 451 registry-backed modules, MCP-native transport, trace, evidence, and replay.
 
 Python + Playwright under the hood. Workflows are YAML. Every step emits a trace so failures aren't a black box. Built for:
 
@@ -125,7 +133,7 @@ The polished surface over flyto-core. Not a toy, not a beta:
 | [flyto-blueprint](https://github.com/flytohub/flyto-blueprint) | Self-evolving workflow pattern engine — 33+ builtin patterns |
 | [flyto-ai](https://github.com/flytohub/flyto-ai) | AI-assisted workflow generation & repair |
 | [flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js) | Plugin SDK + browser plugins (Slack, form-builder, image-crop) |
-| [flyto-indexer](https://github.com/flytohub/flyto-indexer) | Code-intelligence MCP server for IDEs & agents |
+| [flyto-indexer](https://github.com/flytohub/flyto-indexer) | Code-intelligence MCP server for AI coding agents |
 
 **Shared infrastructure**
 
