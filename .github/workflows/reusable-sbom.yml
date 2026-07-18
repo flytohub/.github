@@ -1,7 +1,7 @@
 name: "Reusable — SBOM (CycloneDX) + Grype CVE scan"
 # Called by each repo's security.yml.
 # 1. Generates a CycloneDX-JSON SBOM with Syft (anchore/sbom-action).
-# 2. Scans the SBOM with Grype and uploads findings as SARIF to GitHub Security tab.
+# 2. Scans the SBOM with Grype and best-effort uploads findings as SARIF to GitHub Security tab.
 # 3. Uploads SBOM as a workflow artifact (90-day retention).
 # 4. Attaches SBOM to GitHub Releases automatically.
 #
@@ -32,6 +32,7 @@ jobs:
       contents: write         # attach to GitHub releases
       packages: read          # read registry package metadata
       security-events: write  # upload SARIF to GitHub Security tab
+      actions: read           # allow upload-sarif to inspect this workflow run
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
 
@@ -57,7 +58,9 @@ jobs:
 
       - name: Upload Grype SARIF to GitHub Security tab
         if: always()
+        continue-on-error: true
         uses: github/codeql-action/upload-sarif@c35d1b164463ee62a100735382aaaa525c5d3496  # codeql-bundle-v2.25.6
         with:
           sarif_file: grype-results.sarif
           category: grype
+          wait-for-processing: false
