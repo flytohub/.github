@@ -11,3 +11,19 @@ Consequences:
 - Root memory files must stay current.
 - UI changes must avoid the eight forbidden frontend failures in `AGENTS.md`.
 - Handoffs must be registered in `handoffs/_registry.md`.
+
+## 2026-07-18 - Make Community Intake Org-Wide
+
+Decision: `.github` owns the default Flyto2 community map, good-first issue
+template, and showcase intake so all public repos share one contribution path
+unless a repo overrides it.
+
+Rationale: community growth should not depend on each repository separately
+remembering to define the same entry points. Org defaults make the 27-repo
+workspace easier to understand and easier to contribute to.
+
+Consequences:
+
+- Public examples should point back to one canonical page, post, docs URL,
+  package page, or repository.
+- Social promotion stays review-first and credential-free in source.

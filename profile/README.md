@@ -33,6 +33,15 @@ question:
 - [LangGraph alternative](https://flyto2.com/langgraph-alternative/) -
   deterministic execution and MCP tools for agents.
 
+## Community loop
+
+- Start a Q&A or design discussion: [flyto-core Discussions](https://github.com/flytohub/flyto-core/discussions)
+- Pick a small public task: [good first issues](https://github.com/flytohub/flyto-core/contribute)
+- Share a workflow, recipe, MCP setup, or Warroom CE lab: use the org-wide
+  showcase template
+- Read the contributor path: [CONTRIBUTING.md](https://github.com/flytohub/.github/blob/main/CONTRIBUTING.md)
+- Follow launch notes and long-form write-ups: [blog.flyto2.com](https://blog.flyto2.com)
+
 ## Hi, we're Flyto2
 
 Flyto2 is for builders who want AI agents to do real work without turning every
@@ -209,6 +218,10 @@ flyto recipe competitor-intel --url https://github.com/pricing
 PRs welcome. Pick a [good first issue](https://github.com/flytohub/flyto-core/contribute), or drop by [Discussions](https://github.com/flytohub/flyto-core/discussions) and tell us what you want to build.
 
 We usually respond to issues and PRs within 24 hours.
+
+If you built a recipe, MCP integration, browser workflow, or Warroom CE lab that
+others can reuse, open a showcase item. Maintainers can promote accepted public
+links through the Flyto2 social publishing queue after review.
 
 ---
 

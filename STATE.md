@@ -1,10 +1,13 @@
 # STATE.md
 
-Last reviewed: 2026-07-16
+Last reviewed: 2026-07-18
 
 ## Current State
 
 `.github` is part of the 27-repository Flyto2 workspace memory standardization.
+It now carries the org-wide community map, good-first intake, and showcase
+intake for reusable workflows, MCP examples, browser automations, and Warroom
+CE labs.
 
 ## Known Risks
 
@@ -13,4 +16,5 @@ Last reviewed: 2026-07-16
 
 ## Verification
 
-Record the latest relevant build, test, lint, deploy, or publish checks here.
+- 2026-07-18: Markdown/content-only update; verified by source review,
+  brand/email scan, and git diff checks in the community expansion pass.

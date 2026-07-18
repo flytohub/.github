@@ -7,6 +7,8 @@ its own `CONTRIBUTING.md` it takes precedence.
 
 - **Search first.** Someone may already be on it. Check issues, PRs, and
   [Discussions](https://github.com/flytohub/flyto-core/discussions).
+- **New here?** Start with the [community map](./COMMUNITY.md) and a
+  `good first issue` that has a narrow done condition.
 - **Small fix (typo, broken link, obvious bug)** → PR straight to `main`.
 - **Anything non-trivial** → open an issue or discussion first. Getting
   alignment before writing code saves both of us rework.

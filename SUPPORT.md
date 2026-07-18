@@ -17,6 +17,12 @@ Use the [bug template](https://github.com/flytohub/.github/blob/main/.github/ISS
 → [GitHub Discussions](https://github.com/flytohub/flyto-core/discussions) — Q&A category.
 Faster than email, public so the answer helps the next person too.
 
+## Share a workflow or demo
+
+→ Use the showcase template or [community map](./COMMUNITY.md).
+Reusable recipes, MCP setups, browser automation examples, and Warroom CE labs
+are the best candidates for public promotion.
+
 ## 📖 Reading the docs
 
 → [docs.flyto2.com](https://docs.flyto2.com) — full product documentation.
@@ -56,5 +62,5 @@ Faster than email, public so the answer helps the next person too.
 ## What we *don't* do here
 
 - **No private 1-on-1 free support.** OSS questions go in Discussions so everyone benefits.
-- **No DMs on social.** Twitter / LinkedIn replies happen when they happen — for anything substantive, use the channels above.
+- **No DMs on social.** Social replies happen when they happen — for anything substantive, use the channels above.
 - **No support for forks we didn't publish.** If you're running a fork, open issues there first.
