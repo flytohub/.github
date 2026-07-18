@@ -1,7 +1,7 @@
 name: "Reusable — CodeQL"
 # Called by each repo's security.yml for Python, JavaScript/TypeScript, and Go.
 # Uploads findings as SARIF to GitHub Security tab (requires contents: read +
-# security-events: write in the calling workflow).
+# actions: read + security-events: write in the calling workflow).
 # All action steps are pinned to commit SHA for supply chain integrity.
 
 on:
@@ -13,6 +13,7 @@ on:
         required: true
 
 permissions:
+  actions: read
   contents: read
   security-events: write
 
@@ -21,6 +22,7 @@ jobs:
     name: CodeQL (${{ inputs.language }})
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: read
       security-events: write
     steps:
