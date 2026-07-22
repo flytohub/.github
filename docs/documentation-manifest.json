@@ -1,0 +1,75 @@
+{
+  "$schema": "./documentation-contract.schema.json",
+  "schema_version": 1,
+  "repository": ".github",
+  "status": "active",
+  "audiences": ["contributors", "maintainers", "security reviewers", "Flyto2 community"],
+  "documentation": {
+    "index": "docs/README.md",
+    "architecture": "ARCHITECTURE.md",
+    "state": "STATE.md",
+    "security": "SECURITY.md",
+    "changelog": "CHANGELOG.md",
+    "feature_reference": "docs/FEATURES.md",
+    "source_reference": "docs/reference/python-api.md",
+    "module_roots": ["docs", "profile", "scripts"],
+    "configuration_not_applicable": true
+  },
+  "source_areas": [
+    {
+      "id": "community-health",
+      "description": "Organization profile, policies, and default GitHub intake templates for public Flyto2 repositories.",
+      "paths": ["profile/README.md", "ISSUE_TEMPLATE/**", "DISCUSSION_TEMPLATE/**", "COMMUNITY.md", "CONTRIBUTING.md", "SECURITY.md", "SUPPORT.md"],
+      "documentation": ["docs/FEATURES.md#organization-profile", "docs/FEATURES.md#community-intake", "docs/FEATURES.md#community-policies"]
+    },
+    {
+      "id": "reusable-workflows",
+      "description": "Organization-owned reusable security, SBOM, CodeQL, and documentation workflow implementations.",
+      "paths": [".github/workflows/reusable-*.yml", "scripts/*.py"],
+      "documentation": ["docs/FEATURES.md#reusable-security-workflows", "docs/FEATURES.md#documentation-governance", "docs/DOCUMENTATION_STANDARD.md", "docs/reference/python-api.md"]
+    }
+  ],
+  "feature_surfaces": [
+    {
+      "id": "organization-profile",
+      "title": "Organization profile",
+      "kind": "content",
+      "status": "active",
+      "description": "Publishes the canonical GitHub organization introduction and discovery links for Flyto2 users and contributors.",
+      "source": ["profile/README.md"],
+      "documentation": ["docs/FEATURES.md#organization-profile"],
+      "verification": ["Review rendered GitHub organization profile and all canonical links"]
+    },
+    {
+      "id": "community-intake",
+      "title": "Community intake",
+      "kind": "governance",
+      "status": "active",
+      "description": "Provides default issue and discussion forms for bugs, ideas, contributions, questions, and public showcases.",
+      "source": ["ISSUE_TEMPLATE/**", "DISCUSSION_TEMPLATE/**"],
+      "documentation": ["docs/FEATURES.md#community-intake", "COMMUNITY.md"],
+      "verification": ["Validate GitHub issue and discussion form YAML during pull-request review"]
+    },
+    {
+      "id": "security-gates",
+      "title": "Reusable security gates",
+      "kind": "workflow",
+      "status": "active",
+      "description": "Exposes reusable secret, dependency, CodeQL, SBOM, and vulnerability scanning workflows to Flyto2 repositories.",
+      "source": [".github/workflows/reusable-security.yml", ".github/workflows/reusable-codeql.yml", ".github/workflows/reusable-sbom.yml"],
+      "documentation": ["docs/FEATURES.md#reusable-security-workflows", "SECURITY.md"],
+      "verification": ["Caller repositories execute the reusable workflows in GitHub Actions"]
+    },
+    {
+      "id": "documentation-contract",
+      "title": "Documentation contract",
+      "kind": "workflow",
+      "status": "active",
+      "description": "Validates required project memory, feature-to-source ownership, documentation targets, local links, naming, and contact domains.",
+      "source": ["scripts/audit-documentation.py", "scripts/test_audit_documentation.py", "docs/documentation-contract.schema.json", ".github/workflows/reusable-documentation.yml"],
+      "documentation": ["docs/DOCUMENTATION_STANDARD.md", "docs/FEATURES.md#documentation-governance"],
+      "tests": ["scripts/test_audit_documentation.py"],
+      "verification": ["python3 -m unittest discover -s scripts -p 'test_*.py'", "python3 scripts/audit-documentation.py . --strict --json"]
+    }
+  ]
+}

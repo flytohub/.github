@@ -36,7 +36,7 @@ are the best candidates for public promotion.
 ## 🔒 Security issue
 
 → **Do not open a public issue.** See [SECURITY.md](./SECURITY.md).
-📧 security@flyto2.com — acknowledged within 24 hours.
+📧 security@flyto2.com — private, with the response targets in the security policy.
 
 ## 🤝 Code of conduct concern
 
@@ -53,10 +53,10 @@ are the best candidates for public promotion.
 
 | Channel | Target |
 |---------|--------|
-| Security report | 24 hours acknowledgement, 72 hours triage |
+| Security report | Target: 3 business days acknowledgement, 10 business days initial triage |
 | Bug / feature issue | 1–3 business days |
 | Discussions Q&A | Best-effort by maintainers + community |
-| Conduct report | 72 hours |
+| Conduct report | Target: 3 business days |
 | Commercial enquiry | 2 business days |
 
 ## What we *don't* do here

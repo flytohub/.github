@@ -1,5 +1,20 @@
 # DECISIONS.md
 
+## 2026-07-22 - Adopt Machine-Readable Documentation Contracts
+
+Decision: every Flyto2 repository maps source areas and feature surfaces to
+durable docs and verification evidence through
+`docs/documentation-manifest.json`.
+
+Rationale: a shared contract can detect undocumented features and stale claims
+without copying audit logic into 27 repositories.
+
+Consequences:
+
+- This repository owns the schema, audit, and reusable workflow.
+- Product repositories own their manifests and prose.
+- Language-native API references remain authoritative for public symbols.
+
 ## 2026-07-16 - Adopt Flyto2 Workspace Memory Standard
 
 Decision: `.github` follows the Flyto2 project memory scaffold and frontend quality gate.

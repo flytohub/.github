@@ -1,0 +1,5 @@
+.DS_Store
+.flyto-index/
+out/
+__pycache__/
+*.py[cod]

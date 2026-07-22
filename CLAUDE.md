@@ -7,9 +7,14 @@ Repository: `.github`
 Before changing code or documentation:
 
 1. Read `PROJECT.md`, `ARCHITECTURE.md`, `STATE.md`, and recent files in `handoffs/`.
-2. Preserve Flyto2 naming, `@flyto2.com` contact addresses, and current public URLs.
-3. Apply the Flyto2 Frontend Quality Gate to every UI change.
-4. Update memory files when behavior, deployment, public copy, or architecture changes.
+2. Explore with `flyto-index context`, search with `rg`, and inspect
+   `flyto-index impact` before changing shared automation or public routing.
+3. Preserve Flyto2 naming, `@flyto2.com` contact addresses, and current public URLs.
+4. Apply the Flyto2 Frontend Quality Gate to every UI change.
+5. Update memory files when behavior, deployment, public copy, or architecture changes.
+6. Finish with `python3 scripts/audit-documentation.py . --strict`,
+   `python3 scripts/generate-source-reference.py --check`, and
+   `flyto-index verify . --full-scan --strict`.
 ## Flyto2 Project Memory Contract
 
 Every Flyto2 repository must keep this project-memory scaffold current:

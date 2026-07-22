@@ -8,8 +8,8 @@ This file is org-wide. Unless a specific repo overrides it with its own
 **Please do not open a public issue for security bugs.**
 
 - 📧 **security@flyto2.com** — preferred
-- 🔒 GitHub private vulnerability reporting is enabled on every repo:
-  navigate to `Security → Report a vulnerability` on the repo page
+- 🔒 If the repository's `Security` tab offers **Report a vulnerability**, use
+  that private form. Otherwise, use the email address above.
 
 Include, when you can:
 
@@ -18,17 +18,18 @@ Include, when you can:
 3. What you believe the impact is
 4. Whether you've contacted anyone else about this
 
-We'll acknowledge within **24 hours** and give you a triage verdict
-within **72 hours**. We aim to ship a fix and disclose within 90 days.
+We target an acknowledgement within **3 business days** and an initial triage
+update within **10 business days**. These are best-effort response targets, not
+an SLA. Remediation and disclosure timing depends on severity, reproducibility,
+affected maintainers, and coordinated-disclosure constraints.
 
 ## Scope
 
 In scope:
 
-- Any source under `flytohub/*`
-- Our hosted services: `flyto2.com`, `cloud.flyto2.com`, `cortex.flyto2.com`,
-  `docs.flyto2.com`
-- Our desktop builds published on `flyto2.com/app.html`
+- Source in actively maintained public `flytohub/*` repositories
+- Flyto2-operated public services under `flyto2.com`
+- Release artifacts published by the official `flytohub` organization
 
 Out of scope (do not probe):
 
@@ -40,10 +41,9 @@ Out of scope (do not probe):
 
 ## Responsible disclosure
 
-We don't currently run a paid bounty program, but we credit every
-reporter who follows this policy in the release notes of the fix
-(opt-out available). Repeat reporters of high-quality findings get
-priority triage.
+We don't currently run a paid bounty program. When a public fix has release
+notes, we may credit the reporter with their consent. Report quality and impact
+inform triage priority, but do not create a payment or response-time promise.
 
 ## Known not-secrets
 

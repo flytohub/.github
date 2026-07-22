@@ -1,239 +1,150 @@
 <p align="center">
-  <img src="https://flyto2.com/logo.png" width="120" alt="Flyto2" />
+  <img src="https://flyto2.com/logo.png" width="112" alt="Flyto2 logo" />
 </p>
 
 <h1 align="center">Flyto2</h1>
 
 <p align="center">
-  <b>Open-source AI workflow automation for browser tasks, MCP-native agents, and replayable execution.</b>
+  <strong>Open-source AI workflow automation with deterministic execution, MCP tools, evidence, and replay.</strong>
 </p>
 
 <p align="center">
-  <a href="https://flyto2.com">🌐 Website</a> ·
-  <a href="https://docs.flyto2.com">📖 Docs</a> ·
-  <a href="https://blog.flyto2.com">📝 Blog</a> ·
-  <a href="https://www.youtube.com/@Flyto2">📺 YouTube</a> ·
-  <a href="https://github.com/flytohub/flyto-core/discussions">💬 Discussions</a>
+  <a href="https://flyto2.com">Website</a> |
+  <a href="https://docs.flyto2.com">Docs</a> |
+  <a href="https://blog.flyto2.com">Blog</a> |
+  <a href="https://pypi.org/project/flyto-core/">PyPI</a> |
+  <a href="https://www.youtube.com/@Flyto2">YouTube</a> |
+  <a href="https://github.com/flytohub/flyto-core/discussions">Discussions</a>
 </p>
 
----
-
-## Start here
-
-If you are comparing automation stacks, start with the page that matches your
-question:
-
-- [AI workflow automation platform](https://flyto2.com/) - product overview.
-- [n8n alternative](https://flyto2.com/n8n-alternative/) - browser-heavy
-  workflows, MCP tools, YAML recipes, and evidence.
-- [Zapier alternative](https://flyto2.com/zapier-alternative/) - local or
-  self-hosted workflow automation with proof artifacts.
-- [Playwright alternative](https://flyto2.com/playwright-alternative/) -
-  workflow layer above browser automation.
-- [LangGraph alternative](https://flyto2.com/langgraph-alternative/) -
-  deterministic execution and MCP tools for agents.
-
-## Community loop
-
-- Start a Q&A or design discussion: [flyto-core Discussions](https://github.com/flytohub/flyto-core/discussions)
-- Pick a small public task: [good first issues](https://github.com/flytohub/flyto-core/contribute)
-- Share a workflow, recipe, MCP setup, or Warroom CE lab: use the org-wide
-  showcase template
-- Read the contributor path: [CONTRIBUTING.md](https://github.com/flytohub/.github/blob/main/CONTRIBUTING.md)
-- Follow launch notes and long-form write-ups: [blog.flyto2.com](https://blog.flyto2.com)
-
-## Hi, we're Flyto2
-
-Flyto2 is for builders who want AI agents to do real work without turning every
-run into a fragile one-off script. If you are comparing an **open-source AI
-agent framework**, a browser automation tool, or an MCP server automation stack,
-start here: Flyto2 gives you deterministic modules, step-by-step traces, and
-replay from the exact place a workflow failed.
-
-We build two things:
-
-### Automation that doesn't fall apart when step 8 fails
-
-> Opening browsers. Waiting for pages. Filling forms. Clicking. Screenshotting.
-> Downloading reports. Pushing data into a sheet.
->
-> Annoying once a week. Unacceptable thirty times a week.
-
-The real pain is not writing the script. The real pain is watching it fail near
-the end, then paying the time cost again. **We record every step and let you
-replay from any one of them.**
+## Start with one command
 
 ```bash
-pip install flyto-core[browser] && playwright install chromium
+pip install "flyto-core[browser]"
+playwright install chromium
 flyto recipe competitor-intel --url https://github.com/pricing
 ```
 
+Flyto2 is for builders who need agents to finish real browser and data work,
+not just suggest code. Workflows are explicit, every step emits trace and
+evidence, and failed runs can resume from the step that needs attention.
+
+The generated Flyto2 Core catalog currently contains **451 registry-backed
+modules across 84 categories**. The count comes from the runtime registry and
+is checked in CI, rather than maintained as marketing copy.
+
+```text
+workflow -> deterministic steps -> trace -> evidence -> replay
 ```
-  Step  1/12  browser.launch         ✓      420ms
-  Step  2/12  browser.goto           ✓    1,203ms
-  Step  3/12  browser.screenshot     ✓    1,847ms  → saved intel-desktop.png
-  Step  8/12  browser.performance    ✗      ERROR
-  
-  # next run only touches step 8 onwards
-  flyto replay --from-step 8
-```
 
-### Turn your chaos pile into a knowledge workspace
+## Choose your entry point
 
-> How many "I'll read this later" PDFs are on your laptop?
-> How many "I'm scared to touch this" folders on your NAS?
-> How many "I wrote this somewhere in Notion" pages that you can't find?
+| You want to... | Start here |
+|---|---|
+| Run YAML recipes, browser automation, MCP tools, queues, triggers, trace, evidence, and replay | [flyto-core](https://github.com/flytohub/flyto-core) |
+| Give a coding agent dependency, context, impact, security, and documentation gates | [flyto-indexer](https://github.com/flytohub/flyto-indexer) |
+| Self-host a source-available security warroom and inspect its public contracts | [flyto-warroom](https://github.com/flytohub/flyto-warroom) |
+| Read installation, API, configuration, recipe, and operations guides | [docs.flyto2.com](https://docs.flyto2.com) |
+| Compare Flyto2 with n8n, Zapier, Make, Playwright, or LangGraph | [flyto2.com](https://flyto2.com) and [the Flyto2 blog](https://blog.flyto2.com) |
+| Ask a question, propose an integration, or share a workflow | [Flyto2 Discussions](https://github.com/flytohub/flyto-core/discussions) |
 
-We don't force you to organise. You drop things in an Inbox. The engine reads, classifies, links. When a topic has enough gravity, it **suggests** you promote it into a Project. You never had to decide upfront.
+## Why Flyto2 Core
 
-**Core rule: we never touch your original files.** Your NAS layout stays exactly the way it was. We index, cache, and map — we don't move bytes around.
+### Deterministic under the AI layer
 
----
+Agents can select tools and compose workflows, but the execution layer keeps
+inputs, outputs, retries, timing, evidence, and replay explicit. That makes a
+failed step debuggable and a successful run repeatable.
 
-## Flagship products
+### Browser work with proof
 
-### [flyto-core](https://github.com/flytohub/flyto-core)
+Recipes can navigate, click, type, extract structured data, capture desktop and
+mobile screenshots, measure Web Vitals, create PDFs, and write reports. The
+artifacts belong to the run instead of disappearing into an opaque chat.
 
-> **Open-source AI workflow automation engine.** 451 registry-backed modules, MCP-native transport, trace, evidence, and replay.
+### MCP-native code intelligence
 
-Python + Playwright under the hood. Workflows are YAML. Every step emits a trace so failures aren't a black box. Built for:
+Flyto2 Indexer gives coding agents local repository context, dependency graphs,
+impact analysis, secret and taint checks, documentation coverage, and strict
+completion gates. It does not upload repository source for static analysis.
 
-- Competitor monitoring, price tracking, market intel
-- Repetitive data extraction and shaping
-- RPA that needs to be stable, debuggable, collaboratively owned
+### Open source where the license says open source
+
+`flyto-core` and `flyto-indexer` are Apache-2.0 projects. Other repositories may
+use MIT, source-available, or commercial terms. Check each repository's
+`LICENSE` before use; the organization profile does not override it.
+
+## Core workflow example
 
 ```yaml
 id: competitor_intel_v1
 steps:
   - id: launch
     module: browser.launch
-    params: { stealth: true, headless: true }
-  - id: goto
+    params: { headless: true }
+  - id: visit
     module: browser.goto
     params: { url: "{{target_url}}", wait_until: networkidle }
-  - id: snap
+  - id: capture
     module: browser.screenshot
-    params: { path: "intel-{{date}}.png" }
-  # every step replayable in isolation
+    params: { path: competitor.png, full_page: true }
+  - id: close
+    module: browser.close
 ```
 
-📦 `pip install flyto-core`
-⭐ [Star on GitHub →](https://github.com/flytohub/flyto-core)
-
-### [flyto-cloud](https://cloud.flyto2.com) — Flyto2 Cloud Automation
-
-> **Workflow automation SaaS + desktop app.** Ship real work, not prototypes.
-
-The polished surface over flyto-core. Not a toy, not a beta:
-
-- 🎨 Drag-and-drop workflow canvas — no YAML required to ship something useful
-- 🏪 Template Marketplace — run someone else's workflow, or publish your own
-- 🖥️ Tauri desktop build — passwords and data stay on your machine
-- 👥 Team features — shared workflows, schedules, queues, full audit log
-
-🌐 [cloud.flyto2.com](https://cloud.flyto2.com) · [desktop download](https://flyto2.com/app.html)
-
----
+Start with the built-in recipes for competitor intelligence, full website
+audits, screenshots, SEO checks, and structured extraction. Use the module
+catalog when you need lower-level control.
 
 ## Repository map
 
-**Products & frontends**
+### Open-source foundations
 
-| Repo | What it is |
-|------|------------|
-| [flyto2](https://github.com/flytohub/flyto2) | Flyto2 Desktop App — visual browser, AI, and API workflow automation |
-| [flyto-warroom](https://github.com/flytohub/flyto-warroom) | Flyto2 Warroom CE — CTEM, attack surface, MCP security, evidence, and security scoring |
-| [flyto-cortex](https://github.com/flytohub/flyto-cortex) | Knowledge workspace frontend (React 19 + Mantine) |
-| [flyto-app](https://github.com/flytohub/flyto-app) | Mobile Command Center — iOS / Android (Flutter + Riverpod) |
-| [flyto-data](https://github.com/flytohub/flyto-data) | Data Product platform — sell datasets via API (FastAPI + Fuse React) |
-| [flyto-landing-page](https://github.com/flytohub/flyto-landing-page) | Marketing site at [flyto2.com](https://flyto2.com) |
-| [flyto-blog](https://github.com/flytohub/flyto-blog) | Engineering notes, release stories, post-mortems |
+| Repository | Responsibility |
+|---|---|
+| [flyto-core](https://github.com/flytohub/flyto-core) | Python execution engine, CLI, YAML recipes, browser runtime, modules, MCP, evidence, and replay |
+| [flyto-indexer](https://github.com/flytohub/flyto-indexer) | Local code-intelligence CLI and MCP server for context, impact, dependency, security, and quality gates |
+| [flyto-i18n](https://github.com/flytohub/flyto-i18n) | Shared locale contracts and translation validation |
+| [flyto-design-tokens](https://github.com/flytohub/flyto-design-tokens) | Shared visual tokens and generated CSS/JavaScript references |
+| [flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js) | JavaScript plugin SDK and integration contracts |
 
-**Engines & SDKs**
+### Product and public surfaces
 
-| Repo | What it is |
-|------|------------|
-| [flyto-engine](https://github.com/flytohub/flyto-engine) | Go backend shared by Cortex (and soon Cloud) |
-| [flyto-blueprint](https://github.com/flytohub/flyto-blueprint) | Self-evolving workflow pattern engine — 33+ builtin patterns |
-| [flyto-ai](https://github.com/flytohub/flyto-ai) | AI-assisted workflow generation & repair |
-| [flyto-plugins-js](https://github.com/flytohub/flyto-plugins-js) | Plugin SDK + browser plugins (Slack, form-builder, image-crop) |
-| [flyto-indexer](https://github.com/flytohub/flyto-indexer) | Code-intelligence MCP server for AI coding agents |
+| Repository | Responsibility |
+|---|---|
+| [flyto-warroom](https://github.com/flytohub/flyto-warroom) | Generated source-available Warroom CE distribution, public contracts, installer, and release evidence |
+| [flyto-cloud](https://github.com/flytohub/flyto-cloud) | Hosted automation and application surfaces |
+| [flyto-code](https://github.com/flytohub/flyto-code) | Security cockpit frontend and product interaction contracts |
+| [flyto-app](https://github.com/flytohub/flyto-app) | Flutter mobile command-center client |
+| [flyto-cortex](https://github.com/flytohub/flyto-cortex) | Knowledge workspace frontend |
+| [flyto-data](https://github.com/flytohub/flyto-data) | Data-product API and management surface |
+| [flyto-docs](https://github.com/flytohub/flyto-docs) | Public technical documentation |
+| [flyto-landing-page](https://github.com/flytohub/flyto-landing-page) | Product and comparison pages at flyto2.com |
+| [flyto-blog](https://github.com/flytohub/flyto-blog) | Technical articles, release stories, and implementation notes |
+| [flyto2](https://github.com/flytohub/flyto2) | Deprecated legacy release and security-routing shell; not the active desktop source |
 
-**Shared infrastructure**
+The remaining repositories hold engine services, blueprints, AI helpers,
+commercial extensions, admin tools, release memory, and editor integrations.
+Each repository README states its own authority and license.
 
-| Repo | What it is |
-|------|------------|
-| [flyto-docs](https://github.com/flytohub/flyto-docs) | All-product documentation (VitePress, multi-language) |
-| [flyto-i18n](https://github.com/flytohub/flyto-i18n) | Shared translations — single source of truth across products |
-| [flyto-design-tokens](https://github.com/flytohub/flyto-design-tokens) | Color, typography, spacing tokens for every Flyto2 surface |
-| [flyto-evolution-log](https://github.com/flytohub/flyto-evolution-log) | Public evolution memory — every self-repair attempt + outcome |
+## Community
 
-**Pro / commercial**
+- Ask usage and design questions in [Discussions](https://github.com/flytohub/flyto-core/discussions).
+- Pick a scoped task from [good first issues](https://github.com/flytohub/flyto-core/contribute).
+- Share a recipe, MCP setup, integration, or Warroom CE lab through the
+  organization showcase template.
+- Read [`CONTRIBUTING.md`](https://github.com/flytohub/.github/blob/main/CONTRIBUTING.md)
+  before changing shared contracts.
+- Report vulnerabilities privately through the repository Security tab or
+  `security@flyto2.com`, never through a public issue.
 
-| Repo | What it is |
-|------|------------|
-| [flyto-pro](https://github.com/flytohub/flyto-pro) | Pro-tier extensions — SAML/SCIM, advanced scheduling, audit retention |
-| [flyto-pro-core](https://github.com/flytohub/flyto-pro-core) | Shared Pro infrastructure (licensing, telemetry) |
-| [flyto-modules-pro](https://github.com/flytohub/flyto-modules-pro) | Premium module catalogue — paid integrations & connectors |
+## Contact
 
----
-
-## 💡 What we care about
-
-**1. Traceability over magic.**
-Every step records what it did. When an AI-generated script blows up, you can see which step, why, and whether it's safe to continue from there.
-
-**2. Your data stays yours.**
-flyto-core desktop mode runs offline by default. The knowledge workspace never rewrites your NAS / Drive. We index, cache, and overlay — the originals are untouched.
-
-**3. Code that runs today.**
-No "coming soon". Every repo has a working `pip install` / `npm install` / `go build` path. Open it and try it.
-
-**4. Open source, seriously.**
-- ✅ Thousands of tests (flyto-cloud: 1,730+; flyto-engine: every core package covered)
-- ✅ Real CI/CD with automated deployment
-- ✅ Security engineering — hash-chained audit logs, permission matrix, idempotency keys, typed error envelopes
-- ✅ Ops-grade docs (API reference, data model, operations runbook)
-
----
-
-## 🚀 Try it
-
-**Command line (30 seconds):**
-```bash
-pip install flyto-core[browser] && playwright install chromium
-flyto recipe competitor-intel --url https://github.com/pricing
-```
-
-**Web app:**
-👉 [cloud.flyto2.com](https://cloud.flyto2.com)
-
-**Desktop (works offline):**
-👉 [flyto2.com/app.html](https://flyto2.com/app.html)
-
----
-
-## 🤝 Contributing
-
-PRs welcome. Pick a [good first issue](https://github.com/flytohub/flyto-core/contribute), or drop by [Discussions](https://github.com/flytohub/flyto-core/discussions) and tell us what you want to build.
-
-We usually respond to issues and PRs within 24 hours.
-
-If you built a recipe, MCP integration, browser workflow, or Warroom CE lab that
-others can reuse, open a showcase item. Maintainers can promote accepted public
-links through the Flyto2 social publishing queue after review.
-
----
-
-## 📬 Contact
-
-- 💬 [GitHub Discussions](https://github.com/flytohub/flyto-core/discussions) — community Q&A
-- 📖 [docs.flyto2.com](https://docs.flyto2.com) — full documentation
-- 📺 [YouTube @Flyto2](https://www.youtube.com/@Flyto2) — demos and walkthroughs
-- 📧 hello@flyto2.com — partnerships, enterprise, press
-
----
+- Community: [Flyto2 Discussions](https://github.com/flytohub/flyto-core/discussions)
+- Documentation: [docs.flyto2.com](https://docs.flyto2.com)
+- Partnerships and press: `hello@flyto2.com`
+- Security: `security@flyto2.com`
 
 <p align="center">
-  <sub>Made with ☕ in Taiwan. MIT licensed unless stated otherwise.</sub>
+  <sub>Built in Taiwan. License terms are declared per repository.</sub>
 </p>

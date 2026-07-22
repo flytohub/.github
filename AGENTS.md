@@ -3,6 +3,11 @@
 Repository: `.github`
 
 Follow the global Flyto2 workspace rules plus the project memory and frontend quality standards below.
+
+Before editing, run `flyto-index context --path . --query "organization documentation workflow"`,
+search affected policy and profile text with `rg`, and use `flyto-index impact`
+for named automation symbols. After editing, run the documentation audit,
+generated-reference check, and `flyto-index verify . --full-scan --strict`.
 ## Flyto2 Project Memory Contract
 
 Every Flyto2 repository must keep this project-memory scaffold current:

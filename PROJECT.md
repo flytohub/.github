@@ -2,7 +2,17 @@
 
 ## Project
 
-`.github` is part of the Flyto2 workspace. Keep this file current with the repo purpose, owned surfaces, users, and non-goals.
+`.github` is the Flyto2 organization policy, community-health, and reusable
+workflow repository. It owns organization defaults and cross-repository
+contracts; it does not own product implementation or duplicate product docs.
+
+## Owned Surfaces
+
+- Public GitHub organization profile and community entry points.
+- Default issue, discussion, pull-request, contribution, support, conduct, and
+  security guidance.
+- Reusable security, SBOM, CodeQL, and documentation workflows.
+- The machine-readable documentation contract shared by all Flyto2 repositories.
 
 ## Public Identity
 

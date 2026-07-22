@@ -39,9 +39,9 @@ any other venue where you are representing Flyto2.
 
 ## Enforcement
 
-Reports to **conduct@flyto2.com** — goes to a rotating group of
-maintainers, not a single person. We review every report we receive
-within 72 hours.
+Reports to **conduct@flyto2.com** — goes to a rotating group of maintainers,
+not a single person. We target an initial review within three business days;
+this is a best-effort target rather than an SLA.
 
 Possible responses, in rough escalation order:
 

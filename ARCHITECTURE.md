@@ -15,6 +15,10 @@ policy.
 - `ISSUE_TEMPLATE/` and `DISCUSSION_TEMPLATE/`: default intake paths for bug
   reports, features, good first issues, Q&A, ideas, and showcases.
 - `.github/workflows/reusable-*.yml`: reusable security workflow templates.
+- `docs/DOCUMENTATION_STANDARD.md`: organization documentation policy.
+- `docs/documentation-contract.schema.json`: feature-to-document contract schema.
+- `scripts/audit-documentation.py`: dependency-free repository documentation audit.
+- `scripts/generate-source-reference.py`: deterministic source-level API index.
 
 ## Integration Boundaries
 
@@ -22,6 +26,10 @@ This repo should link to canonical Flyto2 surfaces instead of duplicating deep
 product docs: `flyto2.com` for product positioning, `docs.flyto2.com` for
 technical mechanics, `blog.flyto2.com` for educational content, and public
 GitHub package repositories for source.
+
+Repository documentation workflows check out this repository into
+`.flyto-doc-standard/` and execute the shared audit against the caller checkout.
+The caller retains its own manifest and product-specific build/reference gates.
 
 ## Frontend Surfaces
 

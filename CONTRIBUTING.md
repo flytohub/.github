@@ -15,8 +15,10 @@ its own `CONTRIBUTING.md` it takes precedence.
 
 ## Setting up
 
-Every repo's README has a `Quick start` block. If it doesn't, open an
-issue — missing onboarding counts as a bug.
+Start with the repository README and documentation index. Runnable projects
+should identify a first successful install or verification path. Policy,
+generated-output, and deprecated repositories should instead explain why a
+runtime quick start does not apply and route work to the current owner.
 
 ## Coding style
 
