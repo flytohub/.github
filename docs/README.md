@@ -5,6 +5,8 @@ the repository that implements them and in [docs.flyto2.com](https://docs.flyto2
 
 ## Standards
 
+- [Governance whitepaper](WHITEPAPER.md) explains the cross-repository policy,
+  trust, and verification model.
 - [Documentation standard](DOCUMENTATION_STANDARD.md) defines the required
   information architecture, feature coverage contract, and writing rules.
 - [Documentation contract schema](documentation-contract.schema.json) defines
