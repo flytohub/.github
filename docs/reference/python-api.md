@@ -2,19 +2,19 @@
 
 # Organization Automation Python API
 
-Source-backed reference for **24 declarations** across **3 automation files**.
+Source-backed reference for **26 declarations** across **3 automation files**.
 
 | Kind | Declaration | Responsibility | Source |
 |---|---|---|---|
-| function | `def parse_args() -> argparse.Namespace:` | Parse the target repository, manifest path, output mode, and strictness. | [`scripts/audit-documentation.py:53`](<../../scripts/audit-documentation.py#L53>) |
-| function | `def tracked_files(root: Path) -> list[str]:` | Return committed and pending repository files without shared-policy checkout files. | [`scripts/audit-documentation.py:63`](<../../scripts/audit-documentation.py#L63>) |
-| function | `def split_target(value: str) -> str:` | Remove an optional Markdown anchor from a repository path. | [`scripts/audit-documentation.py:79`](<../../scripts/audit-documentation.py#L79>) |
-| function | `def matches(pattern: str, files: list[str]) -> list[str]:` | Resolve an exact repository path or glob against the audited file set. | [`scripts/audit-documentation.py:84`](<../../scripts/audit-documentation.py#L84>) |
-| function | `def validate_path_list(` | Validate a required non-empty path list and return its valid shape. | [`scripts/audit-documentation.py:91`](<../../scripts/audit-documentation.py#L91>) |
-| function | `def validate_manifest(root: Path, manifest_path: Path, files: list[str]) -> tuple[dict, list[str], list[str]]:` | Validate documentation ownership, feature evidence, and optional scanner scope. | [`scripts/audit-documentation.py:116`](<../../scripts/audit-documentation.py#L116>) |
-| function | `def check_local_links(root: Path, files: list[str]) -> list[str]:` | Report Markdown links that escape the repository or target missing local files. | [`scripts/audit-documentation.py:269`](<../../scripts/audit-documentation.py#L269>) |
-| function | `def check_brand_and_contacts(root: Path, files: list[str]) -> list[str]:` | Reject retired product naming and unsupported public contact domains. | [`scripts/audit-documentation.py:297`](<../../scripts/audit-documentation.py#L297>) |
-| function | `def main() -> int:` | Run the complete audit and print deterministic text or JSON results. | [`scripts/audit-documentation.py:322`](<../../scripts/audit-documentation.py#L322>) |
+| function | `def parse_args() -> argparse.Namespace:` | Parse the target repository, manifest path, output mode, and strictness. | [`scripts/audit-documentation.py:55`](<../../scripts/audit-documentation.py#L55>) |
+| function | `def tracked_files(root: Path) -> list[str]:` | Return committed and pending repository files without shared-policy checkout files. | [`scripts/audit-documentation.py:65`](<../../scripts/audit-documentation.py#L65>) |
+| function | `def split_target(value: str) -> str:` | Remove an optional Markdown anchor from a repository path. | [`scripts/audit-documentation.py:81`](<../../scripts/audit-documentation.py#L81>) |
+| function | `def matches(pattern: str, files: list[str]) -> list[str]:` | Resolve an exact repository path or glob against the audited file set. | [`scripts/audit-documentation.py:86`](<../../scripts/audit-documentation.py#L86>) |
+| function | `def validate_path_list(` | Validate a required non-empty path list and return its valid shape. | [`scripts/audit-documentation.py:93`](<../../scripts/audit-documentation.py#L93>) |
+| function | `def validate_manifest(root: Path, manifest_path: Path, files: list[str]) -> tuple[dict, list[str], list[str]]:` | Validate documentation ownership, feature evidence, and optional scanner scope. | [`scripts/audit-documentation.py:118`](<../../scripts/audit-documentation.py#L118>) |
+| function | `def check_local_links(root: Path, files: list[str]) -> list[str]:` | Report Markdown links that escape the repository or target missing local files. | [`scripts/audit-documentation.py:279`](<../../scripts/audit-documentation.py#L279>) |
+| function | `def check_brand_and_contacts(root: Path, files: list[str]) -> list[str]:` | Reject retired product naming and unsupported public contact domains. | [`scripts/audit-documentation.py:311`](<../../scripts/audit-documentation.py#L311>) |
+| function | `def main() -> int:` | Run the complete audit and print deterministic text or JSON results. | [`scripts/audit-documentation.py:338`](<../../scripts/audit-documentation.py#L338>) |
 | function | `def humanize(value: str) -> str:` | Convert a Python identifier into a readable responsibility phrase. | [`scripts/generate-source-reference.py:18`](<../../scripts/generate-source-reference.py#L18>) |
 | function | `def summary(node: ast.AST, name: str) -> str:` | Return the declaration's first docstring sentence or a stable fallback. | [`scripts/generate-source-reference.py:24`](<../../scripts/generate-source-reference.py#L24>) |
 | function | `def signature(lines: list[str], line: int, name: str) -> str:` | Extract and Markdown-escape the declaration's opening source line. | [`scripts/generate-source-reference.py:32`](<../../scripts/generate-source-reference.py#L32>) |
@@ -29,4 +29,6 @@ Source-backed reference for **24 declarations** across **3 automation files**.
 | function | `def test_shared_policy_checkout_is_not_counted_as_caller_content(self):` | Exclude reusable-workflow policy files from the caller repository inventory. | [`scripts/test_audit_documentation.py:115`](<../../scripts/test_audit_documentation.py#L115>) |
 | function | `def test_brand_and_contact_check_rejects_retired_name_and_domain(self):` | Report public Markdown that uses the retired name or a foreign email domain. | [`scripts/test_audit_documentation.py:132`](<../../scripts/test_audit_documentation.py#L132>) |
 | function | `def test_local_link_check_reports_missing_and_escaping_targets(self):` | Report missing local files and links that resolve outside the repository. | [`scripts/test_audit_documentation.py:145`](<../../scripts/test_audit_documentation.py#L145>) |
-| function | `def test_generated_reference_uses_docstrings_and_exact_source_links(self):` | Keep the automation reference descriptive and linked to exact source lines. | [`scripts/test_audit_documentation.py:159`](<../../scripts/test_audit_documentation.py#L159>) |
+| function | `def test_site_routes_and_inline_code_are_not_repository_links(self):` | Leave site-root routes and code expressions to site and source validators. | [`scripts/test_audit_documentation.py:159`](<../../scripts/test_audit_documentation.py#L159>) |
+| function | `def test_code_spans_preserve_legacy_protocol_identifiers(self):` | Do not rewrite retired words embedded in documented compatibility names. | [`scripts/test_audit_documentation.py:172`](<../../scripts/test_audit_documentation.py#L172>) |
+| function | `def test_generated_reference_uses_docstrings_and_exact_source_links(self):` | Keep the automation reference descriptive and linked to exact source lines. | [`scripts/test_audit_documentation.py:185`](<../../scripts/test_audit_documentation.py#L185>) |

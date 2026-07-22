@@ -48,7 +48,11 @@ where the current source of truth lives.
 ## Feature Coverage Contract
 
 `docs/documentation-manifest.json` is the machine-readable map between product
-surfaces and their evidence. Each feature surface records:
+surfaces and their evidence. Small repositories should list explicit feature
+surfaces. Large, generated, or content-heavy repositories may use source areas
+plus a canonical feature reference or whitepaper and an exact-line generated
+source reference; this avoids duplicating thousands of declarations as feature
+rows. An explicit feature surface records:
 
 - a stable identifier and plain-language description;
 - whether it is active, experimental, deprecated, generated, or internal;

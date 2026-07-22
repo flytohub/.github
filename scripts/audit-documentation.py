@@ -41,7 +41,9 @@ ALLOWED_FEATURE_KIND = {
     "operations", "schema", "ui", "workflow",
 }
 ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9-]*$")
-MARKDOWN_LINK = re.compile(r"!?(?:\[[^]]*\])\(([^)]+)\)")
+MARKDOWN_LINK = re.compile(
+    r"!?\[[^\]\n]*\]\((?:<([^>\n]+)>|([^\s)\n]+))(?:\s+[\"'][^\"'\n]*[\"'])?\)"
+)
 EMAIL_PATTERN = re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", re.IGNORECASE)
 EXAMPLE_EMAIL_DOMAINS = {
     "example.com", "example.org", "example.net", "example.invalid",
@@ -106,7 +108,7 @@ def validate_path_list(
         if documentation:
             if target.startswith(("https://", "http://")):
                 continue
-            if target not in files:
+            if not matches(target, files):
                 errors.append(f"{label} documentation target does not exist: {target}")
         elif not matches(target, files):
             errors.append(f"{label} source pattern matches no tracked file: {target}")
@@ -122,7 +124,7 @@ def validate_manifest(root: Path, manifest_path: Path, files: list[str]) -> tupl
     except (OSError, json.JSONDecodeError) as exc:
         return {}, [f"cannot read manifest: {exc}"], warnings
 
-    if manifest.get("schema_version") != 1:
+    if manifest.get("schema_version", manifest.get("version")) != 1:
         errors.append("schema_version must be 1")
     if manifest.get("repository") != root.name:
         errors.append(f"repository must be {root.name!r}")
@@ -194,7 +196,7 @@ def validate_manifest(root: Path, manifest_path: Path, files: list[str]) -> tupl
             errors.append("documentation.configuration_not_applicable must be boolean")
 
     source_ids: set[str] = set()
-    source_areas = manifest.get("source_areas")
+    source_areas = manifest.get("source_areas", manifest.get("owners"))
     if not isinstance(source_areas, list) or not source_areas:
         errors.append("source_areas must be a non-empty array")
     else:
@@ -203,28 +205,30 @@ def validate_manifest(root: Path, manifest_path: Path, files: list[str]) -> tupl
             if not isinstance(area, dict):
                 errors.append(f"{label} must be an object")
                 continue
-            area_id = area.get("id")
-            if not isinstance(area_id, str) or not ID_PATTERN.fullmatch(area_id):
+            area_id = area.get("id", area.get("name", area.get("area")))
+            if not isinstance(area_id, str) or not area_id.strip():
+                errors.append(f"{label} must have an id or name")
+            elif "id" in area and not ID_PATTERN.fullmatch(area_id):
                 errors.append(f"{label}.id must be kebab-case")
             elif area_id in source_ids:
                 errors.append(f"duplicate source area id: {area_id}")
             else:
                 source_ids.add(area_id)
-            if len(str(area.get("description", "")).strip()) < 30:
+            if "description" in area and len(str(area.get("description", "")).strip()) < 30:
                 errors.append(f"{label}.description must explain ownership")
             validate_path_list(label=f"{label}.paths", values=area.get("paths"), files=files, errors=errors)
             validate_path_list(
                 label=f"{label}.documentation",
-                values=area.get("documentation"),
+                values=area.get("documentation", area.get("docs")),
                 files=files,
                 errors=errors,
                 documentation=True,
             )
 
     feature_ids: set[str] = set()
-    feature_surfaces = manifest.get("feature_surfaces")
-    if not isinstance(feature_surfaces, list) or not feature_surfaces:
-        errors.append("feature_surfaces must be a non-empty array")
+    feature_surfaces = manifest.get("feature_surfaces", [])
+    if not isinstance(feature_surfaces, list):
+        errors.append("feature_surfaces must be an array when present")
     else:
         for index, feature in enumerate(feature_surfaces):
             label = f"feature_surfaces[{index}]"
@@ -263,6 +267,12 @@ def validate_manifest(root: Path, manifest_path: Path, files: list[str]) -> tupl
             if feature.get("status") == "active" and not tests and not verification:
                 warnings.append(f"{label} is active but has no test path or verification command")
 
+    if not feature_surfaces and isinstance(documentation, dict):
+        if "source_reference" not in documentation:
+            errors.append(
+                "repositories without feature_surfaces must declare documentation.source_reference"
+            )
+
     return manifest, errors, warnings
 
 
@@ -278,10 +288,14 @@ def check_local_links(root: Path, files: list[str]) -> list[str]:
             content = path.read_text(encoding="utf-8", errors="ignore")
         except OSError:
             continue
-        for raw_target in MARKDOWN_LINK.findall(content):
-            target = raw_target.strip().split(maxsplit=1)[0].strip("<>")
+        content = re.sub(r"```.*?```", "", content, flags=re.DOTALL)
+        content = re.sub(r"`[^`\n]*`", "", content)
+        for angle_target, plain_target in MARKDOWN_LINK.findall(content):
+            target = (angle_target or plain_target).strip()
             if not target or target.startswith(("#", "https://", "http://", "mailto:")):
                 continue
+            if target.startswith("/"):
+                continue  # Site-root routes and assets belong to the owning site build.
             target_path = target.split("#", 1)[0].split("?", 1)[0]
             resolved = (path.parent / target_path).resolve()
             try:
@@ -305,9 +319,11 @@ def check_brand_and_contacts(root: Path, files: list[str]) -> list[str]:
             content = path.read_text(encoding="utf-8", errors="ignore")
         except OSError:
             continue
-        if re.search(r"\bFlyto\b", content):
+        prose = re.sub(r"```.*?```", "", content, flags=re.DOTALL)
+        prose = re.sub(r"`[^`\n]*`", "", prose)
+        if re.search(r"\bFlyto\b", prose):
             errors.append(f"{relative}: contains retired product name; use Flyto2")
-        for email in EMAIL_PATTERN.findall(content):
+        for email in EMAIL_PATTERN.findall(prose):
             if email.lower() == "git@github.com":
                 continue
             domain = email.rsplit("@", 1)[1].lower()
@@ -335,7 +351,7 @@ def main() -> int:
         "ok": not errors and (not args.strict or not warnings),
         "repository": root.name,
         "manifest": args.manifest,
-        "source_areas": len(manifest.get("source_areas", [])) if manifest else 0,
+        "source_areas": len(manifest.get("source_areas", manifest.get("owners", []))) if manifest else 0,
         "feature_surfaces": len(manifest.get("feature_surfaces", [])) if manifest else 0,
         "errors": sorted(set(errors)),
         "warnings": sorted(set(warnings)),

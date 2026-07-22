@@ -13,6 +13,8 @@
   source-reference/configuration applicability fields to the shared standard.
 - Added stdlib contract tests, strict-by-default reusable verification, and
   isolation between a caller repository and the shared-policy checkout.
+- Added generated/content repository coverage mode and Markdown-aware handling
+  for source globs, inline code, exact-line paths, and site-root routes.
 - Adopted Flyto2 workspace memory scaffold and frontend quality gate.
 - Added an org-wide `COMMUNITY.md` map for Q&A, good-first issues, showcases,
   security reporting, and social promotion rules.

@@ -156,6 +156,32 @@ class DocumentationAuditTests(unittest.TestCase):
 
         self.assertEqual(len(warnings), 2)
 
+    def test_site_routes_and_inline_code_are_not_repository_links(self):
+        """Leave site-root routes and code expressions to site and source validators."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "README.md").write_text(
+                "[article](/posts/demo) `text.match(/import\\(([^)]+)\\)/)`\n",
+                encoding="utf-8",
+            )
+
+            warnings = AUDIT.check_local_links(root, ["README.md"])
+
+        self.assertEqual(warnings, [])
+
+    def test_code_spans_preserve_legacy_protocol_identifiers(self):
+        """Do not rewrite retired words embedded in documented compatibility names."""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "README.md").write_text(
+                "Compatibility requires the `X-Flyto-Version` header.\n",
+                encoding="utf-8",
+            )
+
+            errors = AUDIT.check_brand_and_contacts(root, ["README.md"])
+
+        self.assertEqual(errors, [])
+
     def test_generated_reference_uses_docstrings_and_exact_source_links(self):
         """Keep the automation reference descriptive and linked to exact source lines."""
         rendered = GENERATOR.render()

@@ -9,13 +9,13 @@
     "repository",
     "status",
     "audiences",
-    "documentation",
-    "source_areas",
-    "feature_surfaces"
+    "documentation"
   ],
   "properties": {
     "$schema": { "type": "string", "minLength": 1 },
+    "schema": { "type": "string", "minLength": 1 },
     "schema_version": { "const": 1 },
+    "version": { "const": 1 },
     "repository": { "type": "string", "minLength": 2 },
     "status": {
       "enum": ["active", "experimental", "internal", "deprecated", "generated"]
@@ -64,12 +64,27 @@
       "minItems": 1,
       "items": { "$ref": "#/$defs/sourceArea" }
     },
-    "feature_surfaces": {
+    "owners": {
       "type": "array",
       "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceOwner" }
+    },
+    "feature_surfaces": {
+      "type": "array",
       "items": { "$ref": "#/$defs/featureSurface" }
+    },
+    "budgets": {
+      "type": "object"
     }
   },
+  "allOf": [
+    {
+      "anyOf": [
+        { "required": ["source_areas"] },
+        { "required": ["owners"] }
+      ]
+    }
+  ],
   "$defs": {
     "pathList": {
       "type": "array",
@@ -80,12 +95,27 @@
     "sourceArea": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "description", "paths", "documentation"],
+      "required": ["paths", "documentation"],
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "name": { "type": "string", "minLength": 2 },
         "description": { "type": "string", "minLength": 30 },
         "paths": { "$ref": "#/$defs/pathList" },
         "documentation": { "$ref": "#/$defs/pathList" }
+      },
+      "anyOf": [
+        { "required": ["id"] },
+        { "required": ["name"] }
+      ]
+    },
+    "sourceOwner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["area", "paths", "docs"],
+      "properties": {
+        "area": { "type": "string", "minLength": 2 },
+        "paths": { "$ref": "#/$defs/pathList" },
+        "docs": { "$ref": "#/$defs/pathList" }
       }
     },
     "featureSurface": {

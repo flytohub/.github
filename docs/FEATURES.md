@@ -39,6 +39,11 @@ checks required memory files, feature/source mappings, local links, Flyto2
 naming, and public contact domains. Product-specific API generators and site
 builds stay in the caller repository.
 
+For large generated or content repositories, source-area ownership plus a
+canonical feature/whitepaper document and exact-line source reference is the
+accepted coverage mode. Site-root links are left to the owning framework's
+route and build checks; repository-relative links remain part of this audit.
+
 The standard checkout is excluded from the caller's own tracked-file view, so
 its policy files cannot satisfy or contaminate the caller contract. Strict mode
 is the reusable workflow default, and stdlib unit tests cover malformed scope
