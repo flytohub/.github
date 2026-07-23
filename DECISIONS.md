@@ -1,5 +1,22 @@
 # DECISIONS.md
 
+## 2026-07-23 - Separate Discovery From License Classification
+
+Decision: keep one 28-repository discovery manifest, but apply acquisition SEO
+only to the 16 public repositories and describe a project as open source only
+when its own OSI-approved license permits that wording.
+
+Rationale: GitHub visibility, search demand, and software licensing answer
+different questions. Treating all public source as open source creates legal
+and trust risk; treating private repositories as SEO targets creates noise.
+
+Consequences:
+
+- Ubersuggest evidence is dated and mapped to every public repository.
+- PolyForm projects use source-available language.
+- Private and internal repositories remain inventoried with SEO disabled.
+- A scheduled audit detects GitHub About, topics, count, and license drift.
+
 ## 2026-07-22 - Adopt Machine-Readable Documentation Contracts
 
 Decision: every Flyto2 repository maps source areas and feature surfaces to
@@ -7,7 +24,7 @@ durable docs and verification evidence through
 `docs/documentation-manifest.json`.
 
 Rationale: a shared contract can detect undocumented features and stale claims
-without copying audit logic into 27 repositories.
+without copying audit logic into 28 repositories.
 
 Consequences:
 
@@ -19,7 +36,7 @@ Consequences:
 
 Decision: `.github` follows the Flyto2 project memory scaffold and frontend quality gate.
 
-Rationale: All 27 Flyto2 repositories need consistent handoff context, durable decisions, and UI quality constraints.
+Rationale: All 28 Flyto2 repositories need consistent handoff context, durable decisions, and UI quality constraints.
 
 Consequences:
 

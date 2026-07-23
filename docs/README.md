@@ -11,6 +11,10 @@ the repository that implements them and in [docs.flyto2.com](https://docs.flyto2
   information architecture, feature coverage contract, and writing rules.
 - [Documentation contract schema](documentation-contract.schema.json) defines
   `docs/documentation-manifest.json` for every Flyto2 repository.
+- [Repository discovery and SEO](REPOSITORY_DISCOVERY.md) defines the 28-repo
+  GitHub metadata, license, and Ubersuggest keyword contract.
+- [Repository SEO manifest](repository-seo.json) is the machine-readable source
+  for public discovery and non-public SEO exclusions.
 - [Organization feature reference](FEATURES.md) maps community and reusable
   workflow surfaces to their source of truth.
 - [Generated Python API reference](reference/python-api.md) links every

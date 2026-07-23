@@ -53,3 +53,16 @@ The organization repository also runs its own Markdown lint, local-link test,
 deterministic documentation bundle build, strict contract audit, generated
 Python reference check, and Flyto2 Indexer verification. Reusable workflow
 success never substitutes for the caller's product tests and build.
+
+## Repository Discovery Governance
+
+`docs/repository-seo.json` inventories all 28 GitHub repositories. It records
+visibility, canonical About metadata, required topics, local README authority,
+license classification, and dated Ubersuggest intent evidence. Public
+repositories receive keyword mappings; private and internal repositories carry
+an explicit reason that acquisition SEO is disabled.
+
+`scripts/audit-repository-seo.py` validates the static contract, checks local
+README and license truth when a workspace is available, and compares current
+GitHub metadata when `--live` is enabled. The contract keeps OSI open-source,
+source-available, public-content, and non-public repositories distinct.

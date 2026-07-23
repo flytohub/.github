@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- Added a machine-readable 28-repository discovery contract with dated
+  Ubersuggest evidence, live GitHub metadata checks, and explicit OSI,
+  source-available, public-content, and non-public classifications.
+- Added a weekly GitHub discovery audit and updated the organization profile
+  to the generated 452-module Flyto2 Core inventory.
 - Replaced unverified organization-wide onboarding, private-reporting, and
   response-time guarantees with repository-aware guidance and best-effort
   policy targets.

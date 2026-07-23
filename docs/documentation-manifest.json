@@ -28,6 +28,12 @@
       "description": "Organization-owned reusable security, SBOM, CodeQL, and documentation workflow implementations.",
       "paths": [".github/workflows/reusable-*.yml", "scripts/*.py"],
       "documentation": ["docs/FEATURES.md#reusable-security-workflows", "docs/FEATURES.md#documentation-governance", "docs/DOCUMENTATION_STANDARD.md", "docs/reference/python-api.md"]
+    },
+    {
+      "id": "repository-discovery",
+      "description": "Portfolio-wide GitHub discovery, license classification, and Ubersuggest keyword evidence for all 28 repositories.",
+      "paths": ["docs/repository-seo.json", "scripts/audit-repository-seo.py", "scripts/test_repository_seo.py"],
+      "documentation": ["docs/REPOSITORY_DISCOVERY.md", "docs/FEATURES.md#repository-discovery-governance", "docs/reference/python-api.md"]
     }
   ],
   "feature_surfaces": [
@@ -71,6 +77,17 @@
       "documentation": ["docs/DOCUMENTATION_STANDARD.md", "docs/FEATURES.md#documentation-governance"],
       "tests": ["scripts/test_audit_documentation.py"],
       "verification": ["python3 -m unittest discover -s scripts -p 'test_*.py'", "python3 scripts/audit-documentation.py . --strict --json"]
+    },
+    {
+      "id": "repository-discovery-contract",
+      "title": "Repository discovery contract",
+      "kind": "workflow",
+      "status": "active",
+      "description": "Validates the 28-repository inventory, public discovery metadata, Ubersuggest evidence, and OSI versus source-available license wording.",
+      "source": ["docs/repository-seo.json", "scripts/audit-repository-seo.py"],
+      "documentation": ["docs/REPOSITORY_DISCOVERY.md", "docs/FEATURES.md#repository-discovery-governance"],
+      "tests": ["scripts/test_repository_seo.py"],
+      "verification": ["python3 scripts/audit-repository-seo.py --workspace .. --live"]
     }
   ]
 }

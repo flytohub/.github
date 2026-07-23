@@ -1,0 +1,476 @@
+{
+  "schema_version": 1,
+  "measured_at": "2026-07-23",
+  "source": "Ubersuggest",
+  "measurement_notes": [
+    "US English is the primary acquisition market for public developer repositories.",
+    "Taiwan Traditional Chinese checks are directional because Ubersuggest returned sparse related-keyword rows.",
+    "Public copy must stay natural and product-accurate; keyword evidence never overrides license or feature truth."
+  ],
+  "portfolio": {
+    "owner": "flytohub",
+    "expected_repositories": 28,
+    "expected_public": 16,
+    "expected_non_public": 12,
+    "expected_osi_open_source": 9,
+    "expected_source_available": 2,
+    "expected_public_content": 5,
+    "default_branch": "main"
+  },
+  "keywords": [
+    {
+      "id": "flyto2-brand",
+      "keyword": "Flyto2",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 0,
+      "seo_difficulty": 30,
+      "paid_difficulty": 1,
+      "cpc_usd": 0.0
+    },
+    {
+      "id": "ai-agent-framework",
+      "keyword": "AI agent framework",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 1300,
+      "seo_difficulty": 21,
+      "paid_difficulty": 25,
+      "cpc_usd": 10.3
+    },
+    {
+      "id": "ai-workflow-automation",
+      "keyword": "AI workflow automation",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "exact-related-row",
+      "volume": 1000,
+      "seo_difficulty": 59,
+      "paid_difficulty": 40,
+      "cpc_usd": 42.24
+    },
+    {
+      "id": "workflow-automation-engine",
+      "keyword": "workflow automation engine",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 10,
+      "seo_difficulty": 16,
+      "paid_difficulty": 7,
+      "cpc_usd": 0.0
+    },
+    {
+      "id": "mcp-server",
+      "keyword": "MCP server",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 60500,
+      "seo_difficulty": 50,
+      "paid_difficulty": 33,
+      "cpc_usd": 9.36
+    },
+    {
+      "id": "workflow-templates",
+      "keyword": "workflow templates",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 1000,
+      "seo_difficulty": 45,
+      "paid_difficulty": 48,
+      "cpc_usd": 8.63
+    },
+    {
+      "id": "visual-workflow-builder",
+      "keyword": "visual workflow builder",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 110,
+      "seo_difficulty": 41,
+      "paid_difficulty": 47,
+      "cpc_usd": 39.11
+    },
+    {
+      "id": "code-analysis-tool",
+      "keyword": "code analysis tool",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 480,
+      "seo_difficulty": 41,
+      "paid_difficulty": 26,
+      "cpc_usd": 37.6
+    },
+    {
+      "id": "design-tokens",
+      "keyword": "design tokens",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 720,
+      "seo_difficulty": 52,
+      "paid_difficulty": 3,
+      "cpc_usd": 5.22
+    },
+    {
+      "id": "software-localization",
+      "keyword": "software localization",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 720,
+      "seo_difficulty": 38,
+      "paid_difficulty": 6,
+      "cpc_usd": 16.13
+    },
+    {
+      "id": "plugin-sdk",
+      "keyword": "plugin SDK",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 30,
+      "seo_difficulty": 19,
+      "paid_difficulty": 3,
+      "cpc_usd": 0.0
+    },
+    {
+      "id": "health-digital-twin",
+      "keyword": "health digital twin",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 10,
+      "seo_difficulty": 17,
+      "paid_difficulty": 13,
+      "cpc_usd": 0.0
+    },
+    {
+      "id": "enterprise-workflow-automation",
+      "keyword": "enterprise workflow automation",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 210,
+      "seo_difficulty": 37,
+      "paid_difficulty": 6,
+      "cpc_usd": 53.22
+    },
+    {
+      "id": "desktop-automation-software",
+      "keyword": "desktop automation software",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "overview",
+      "volume": 40,
+      "seo_difficulty": 37,
+      "paid_difficulty": 12,
+      "cpc_usd": 23.12
+    },
+    {
+      "id": "attack-surface-management",
+      "keyword": "attack surface management",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "exact-related-row",
+      "volume": 880,
+      "seo_difficulty": 44,
+      "paid_difficulty": 25,
+      "cpc_usd": 32.48
+    },
+    {
+      "id": "mcp-security",
+      "keyword": "MCP security",
+      "country": "US",
+      "language": "en",
+      "metric_surface": "exact-related-row",
+      "volume": 880,
+      "seo_difficulty": 40,
+      "paid_difficulty": 48,
+      "cpc_usd": 20.08
+    },
+    {
+      "id": "zh-ai-workflow-automation",
+      "keyword": "AI 工作流程自動化",
+      "country": "TW",
+      "language": "zh",
+      "metric_surface": "overview",
+      "volume": 0,
+      "seo_difficulty": 17,
+      "paid_difficulty": 1,
+      "cpc_usd": 0.0
+    },
+    {
+      "id": "zh-mcp-security",
+      "keyword": "MCP 安全",
+      "country": "TW",
+      "language": "zh",
+      "metric_surface": "overview",
+      "volume": 10,
+      "seo_difficulty": 18,
+      "paid_difficulty": 1,
+      "cpc_usd": 0.0
+    },
+    {
+      "id": "zh-attack-surface-management",
+      "keyword": "攻擊面管理",
+      "country": "TW",
+      "language": "zh",
+      "metric_surface": "overview",
+      "volume": 0,
+      "seo_difficulty": 30,
+      "paid_difficulty": 1,
+      "cpc_usd": 0.0
+    }
+  ],
+  "repositories": [
+    {
+      "name": ".github",
+      "visibility": "PUBLIC",
+      "license_class": "public-content",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 organization profile, governance, community health, and reusable issue templates.",
+      "required_topics": ["community-health", "flyto2", "governance", "organization-profile", "ai-workflow-automation"],
+      "readme": "profile/README.md",
+      "keyword_ids": ["ai-workflow-automation", "flyto2-brand"]
+    },
+    {
+      "name": "flyto-admin",
+      "visibility": "INTERNAL",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Non-public operational repository"
+    },
+    {
+      "name": "flyto-ai",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 AI agent layer that turns natural language into executable automation workflows with MCP and model-provider integrations.",
+      "required_topics": ["ai-agent", "ai-agent-framework", "ai-workflow-automation", "flyto2", "mcp-server", "open-source-ai"],
+      "readme": "README.md",
+      "keyword_ids": ["ai-agent-framework", "mcp-server"]
+    },
+    {
+      "name": "flyto-app",
+      "visibility": "INTERNAL",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Non-public mobile product repository"
+    },
+    {
+      "name": "flyto-blog",
+      "visibility": "PUBLIC",
+      "license_class": "public-content",
+      "homepage": "https://blog.flyto2.com",
+      "description": "Flyto2 engineering blog for AI automation, MCP security, CTEM, EASM, CVE prioritization, and workflow automation.",
+      "required_topics": ["blog", "flyto2", "mcp-security", "seo", "ai-workflow-automation"],
+      "readme": "README.md",
+      "keyword_ids": ["mcp-security", "attack-surface-management", "ai-workflow-automation"]
+    },
+    {
+      "name": "flyto-blueprint",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 self-evolving workflow pattern engine that learns, scores, and reuses automation blueprints.",
+      "required_topics": ["automation", "flyto2", "workflow-blueprints", "workflow-engine", "yaml-recipes"],
+      "readme": "README.md",
+      "keyword_ids": ["workflow-templates", "ai-workflow-automation"]
+    },
+    {
+      "name": "flyto-cloud",
+      "visibility": "PRIVATE",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Private hosted-product source repository"
+    },
+    {
+      "name": "flyto-code",
+      "visibility": "INTERNAL",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Non-public product source repository"
+    },
+    {
+      "name": "flyto-console",
+      "visibility": "PRIVATE",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Private operations repository"
+    },
+    {
+      "name": "flyto-core",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 Core is the open-source execution kernel for automation and AI-agent workflows: 452 registry-backed modules, MCP-native transport, YAML recipes, evidence capture, replay, triggers, queue, versioning, and metering.",
+      "required_topics": ["ai-agents", "flyto2", "mcp-server", "open-source", "workflow-automation", "workflow-engine"],
+      "readme": "README.md",
+      "keyword_ids": ["mcp-server", "workflow-automation-engine", "ai-agent-framework"]
+    },
+    {
+      "name": "flyto-cortex",
+      "visibility": "INTERNAL",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Non-public knowledge-workspace repository"
+    },
+    {
+      "name": "flyto-data",
+      "visibility": "PRIVATE",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Private data-product repository"
+    },
+    {
+      "name": "flyto-design-tokens",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 shared design tokens for colors, gradients, shadows, animations, and radii across product surfaces.",
+      "required_topics": ["design-system", "design-tokens", "flyto2", "frontend"],
+      "readme": "README.md",
+      "keyword_ids": ["design-tokens"]
+    },
+    {
+      "name": "flyto-docs",
+      "visibility": "PUBLIC",
+      "license_class": "public-content",
+      "homepage": "https://docs.flyto2.com",
+      "description": "Flyto2 public documentation for agentic automation, Warroom security, MCP, modules, and self-hosted deployment.",
+      "required_topics": ["documentation", "flyto2", "mcp-server", "multilingual-seo"],
+      "readme": "README.md",
+      "keyword_ids": ["mcp-server", "ai-workflow-automation", "mcp-security"]
+    },
+    {
+      "name": "flyto-engine",
+      "visibility": "INTERNAL",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Non-public backend source repository"
+    },
+    {
+      "name": "flyto-evolution-log",
+      "visibility": "PRIVATE",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Private telemetry and learning repository"
+    },
+    {
+      "name": "flyto-flow",
+      "visibility": "PUBLIC",
+      "license_class": "source-available",
+      "spdx": "PolyForm-Shield-1.0.0",
+      "homepage": "https://flyto2.com",
+      "description": "Local-first visual workflow builder that turns browser, API, file, and AI automations into auditable MCP tools.",
+      "required_topics": ["flyto2", "local-first", "mcp", "source-available", "visual-workflow", "workflow-automation"],
+      "readme": "README.md",
+      "keyword_ids": ["visual-workflow-builder", "mcp-server"]
+    },
+    {
+      "name": "flyto-health-twin",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 open-source personal health digital twin research prototype in Go and React Vite.",
+      "required_topics": ["digital-twin", "flyto2", "health-data", "open-source", "privacy"],
+      "readme": "README.md",
+      "keyword_ids": ["health-digital-twin"]
+    },
+    {
+      "name": "flyto-i18n",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "MIT",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 shared localization resources and translation baselines for product, docs, and website surfaces.",
+      "required_topics": ["flyto2", "i18n", "localization", "multilingual-seo", "translations"],
+      "readme": "README.md",
+      "keyword_ids": ["software-localization", "zh-ai-workflow-automation"]
+    },
+    {
+      "name": "flyto-indexer",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 code intelligence MCP server for impact analysis, semantic search, dependency graphs, and AI coding workflows.",
+      "required_topics": ["ai-coding", "code-analysis", "code-intelligence", "flyto2", "mcp-server", "static-analysis"],
+      "readme": "README.md",
+      "keyword_ids": ["code-analysis-tool", "mcp-server"]
+    },
+    {
+      "name": "flyto-landing-page",
+      "visibility": "PUBLIC",
+      "license_class": "public-content",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 multilingual public website and SEO/GEO surface for agentic automation and Warroom security.",
+      "required_topics": ["ai-workflow-automation", "flyto2", "geo", "multilingual-seo", "seo"],
+      "readme": "README.md",
+      "keyword_ids": ["ai-workflow-automation", "ai-agent-framework", "attack-surface-management"]
+    },
+    {
+      "name": "flyto-modules-pro",
+      "visibility": "INTERNAL",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Non-public commercial modules repository"
+    },
+    {
+      "name": "flyto-plugins-js",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 TypeScript and JavaScript plugin SDK with official automation plugins.",
+      "required_topics": ["flyto2", "javascript", "plugin-sdk", "typescript", "workflow-automation"],
+      "readme": "README.md",
+      "keyword_ids": ["plugin-sdk"]
+    },
+    {
+      "name": "flyto-pro",
+      "visibility": "PRIVATE",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Private enterprise services repository"
+    },
+    {
+      "name": "flyto-pro-core",
+      "visibility": "PUBLIC",
+      "license_class": "osi-open-source",
+      "spdx": "Apache-2.0",
+      "homepage": "https://flyto2.com",
+      "description": "Flyto2 Pro Core: licensing and infrastructure helpers for commercial Flyto2 modules.",
+      "required_topics": ["enterprise", "flyto2", "licensing", "open-source", "workflow-automation"],
+      "readme": "README.md",
+      "keyword_ids": ["enterprise-workflow-automation"]
+    },
+    {
+      "name": "flyto-vscode",
+      "visibility": "INTERNAL",
+      "license_class": "non-public",
+      "seo_disabled_reason": "Non-public editor-extension repository"
+    },
+    {
+      "name": "flyto-warroom",
+      "visibility": "PUBLIC",
+      "license_class": "source-available",
+      "spdx": "PolyForm-Noncommercial-1.0.0",
+      "homepage": "https://docs.flyto2.com/warroom/self-hosted-ce",
+      "description": "Flyto2 Warroom CE: open-core attack surface, CTEM, MCP security, evidence, and security scoring workspace.",
+      "required_topics": ["attack-surface-management", "ctem", "flyto2", "mcp-security", "open-core", "source-available"],
+      "readme": "README.md",
+      "keyword_ids": ["attack-surface-management", "mcp-security", "zh-mcp-security", "zh-attack-surface-management"]
+    },
+    {
+      "name": "flyto2",
+      "visibility": "PUBLIC",
+      "license_class": "public-content",
+      "homepage": "https://flyto2.com",
+      "description": "Deprecated Flyto2 legacy distribution shell for historical releases, downloads, and security-policy routing.",
+      "required_topics": ["deprecated", "flyto2", "legacy", "security-policy"],
+      "readme": "README.md",
+      "keyword_ids": ["flyto2-brand"]
+    }
+  ]
+}

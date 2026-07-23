@@ -29,7 +29,7 @@ Flyto2 is for builders who need agents to finish real browser and data work,
 not just suggest code. Workflows are explicit, every step emits trace and
 evidence, and failed runs can resume from the step that needs attention.
 
-The generated Flyto2 Core catalog currently contains **451 registry-backed
+The generated Flyto2 Core catalog currently contains **452 registry-backed
 modules across 84 categories**. The count comes from the runtime registry and
 is checked in CI, rather than maintained as marketing copy.
 

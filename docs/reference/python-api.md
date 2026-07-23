@@ -2,7 +2,7 @@
 
 # Organization Automation Python API
 
-Source-backed reference for **26 declarations** across **3 automation files**.
+Source-backed reference for **43 declarations** across **5 automation files**.
 
 | Kind | Declaration | Responsibility | Source |
 |---|---|---|---|
@@ -15,6 +15,17 @@ Source-backed reference for **26 declarations** across **3 automation files**.
 | function | `def check_local_links(root: Path, files: list[str]) -> list[str]:` | Report Markdown links that escape the repository or target missing local files. | [`scripts/audit-documentation.py:279`](<../../scripts/audit-documentation.py#L279>) |
 | function | `def check_brand_and_contacts(root: Path, files: list[str]) -> list[str]:` | Reject retired product naming and unsupported public contact domains. | [`scripts/audit-documentation.py:311`](<../../scripts/audit-documentation.py#L311>) |
 | function | `def main() -> int:` | Run the complete audit and print deterministic text or JSON results. | [`scripts/audit-documentation.py:338`](<../../scripts/audit-documentation.py#L338>) |
+| function | `def parse_args() -> argparse.Namespace:` | Parse manifest, workspace, live GitHub, and JSON output options. | [`scripts/audit-repository-seo.py:28`](<../../scripts/audit-repository-seo.py#L28>) |
+| function | `def load_manifest(path: Path) -> dict:` | Load the repository SEO manifest as a JSON object. | [`scripts/audit-repository-seo.py:38`](<../../scripts/audit-repository-seo.py#L38>) |
+| function | `def validate_keywords(manifest: dict) -> tuple[set[str], list[str]]:` | Validate dated Ubersuggest keyword evidence and return its identifiers. | [`scripts/audit-repository-seo.py:46`](<../../scripts/audit-repository-seo.py#L46>) |
+| function | `def repository_map(manifest: dict) -> tuple[dict[str, dict], list[str]]:` | Return repositories keyed by name and report duplicate or malformed rows. | [`scripts/audit-repository-seo.py:82`](<../../scripts/audit-repository-seo.py#L82>) |
+| function | `def validate_repositories(manifest: dict, keyword_ids: set[str]) -> tuple[dict[str, dict], list[str]]:` | Validate portfolio counts, public discovery data, and keyword mappings. | [`scripts/audit-repository-seo.py:103`](<../../scripts/audit-repository-seo.py#L103>) |
+| function | `def detect_license(repository_root: Path) -> tuple[str, str \| None]:` | Classify a local repository license without treating visibility as permission. | [`scripts/audit-repository-seo.py:157`](<../../scripts/audit-repository-seo.py#L157>) |
+| function | `def validate_workspace(workspace: Path, repositories: dict[str, dict]) -> list[str]:` | Compare public manifest entries with local READMEs and license files. | [`scripts/audit-repository-seo.py:174`](<../../scripts/audit-repository-seo.py#L174>) |
+| function | `def live_repositories(owner: str) -> dict[str, dict]:` | Read current GitHub About metadata with the authenticated gh CLI. | [`scripts/audit-repository-seo.py:200`](<../../scripts/audit-repository-seo.py#L200>) |
+| function | `def validate_live(manifest: dict, repositories: dict[str, dict]) -> list[str]:` | Compare the manifest with current GitHub visibility and About metadata. | [`scripts/audit-repository-seo.py:212`](<../../scripts/audit-repository-seo.py#L212>) |
+| function | `def audit(manifest_path: Path, workspace: Path \| None = None, live: bool = False) -> dict:` | Run the complete deterministic and optional live repository SEO audit. | [`scripts/audit-repository-seo.py:249`](<../../scripts/audit-repository-seo.py#L249>) |
+| function | `def main() -> int:` | Execute the audit and return a CI-friendly status code. | [`scripts/audit-repository-seo.py:271`](<../../scripts/audit-repository-seo.py#L271>) |
 | function | `def humanize(value: str) -> str:` | Convert a Python identifier into a readable responsibility phrase. | [`scripts/generate-source-reference.py:18`](<../../scripts/generate-source-reference.py#L18>) |
 | function | `def summary(node: ast.AST, name: str) -> str:` | Return the declaration's first docstring sentence or a stable fallback. | [`scripts/generate-source-reference.py:24`](<../../scripts/generate-source-reference.py#L24>) |
 | function | `def signature(lines: list[str], line: int, name: str) -> str:` | Extract and Markdown-escape the declaration's opening source line. | [`scripts/generate-source-reference.py:32`](<../../scripts/generate-source-reference.py#L32>) |
@@ -32,3 +43,9 @@ Source-backed reference for **26 declarations** across **3 automation files**.
 | function | `def test_site_routes_and_inline_code_are_not_repository_links(self):` | Leave site-root routes and code expressions to site and source validators. | [`scripts/test_audit_documentation.py:159`](<../../scripts/test_audit_documentation.py#L159>) |
 | function | `def test_code_spans_preserve_legacy_protocol_identifiers(self):` | Do not rewrite retired words embedded in documented compatibility names. | [`scripts/test_audit_documentation.py:172`](<../../scripts/test_audit_documentation.py#L172>) |
 | function | `def test_generated_reference_uses_docstrings_and_exact_source_links(self):` | Keep the automation reference descriptive and linked to exact source lines. | [`scripts/test_audit_documentation.py:185`](<../../scripts/test_audit_documentation.py#L185>) |
+| class | `class RepositorySeoAuditTests(unittest.TestCase):` | Exercise portfolio counts, licensing, and Ubersuggest evidence rules. | [`scripts/test_repository_seo.py:19`](<../../scripts/test_repository_seo.py#L19>) |
+| function | `def setUp(self) -> None:` | Load an isolated copy of the checked-in discovery manifest. | [`scripts/test_repository_seo.py:22`](<../../scripts/test_repository_seo.py#L22>) |
+| function | `def test_checked_in_manifest_is_complete(self) -> None:` | Keep all 28 repositories mapped to a deliberate discovery policy. | [`scripts/test_repository_seo.py:26`](<../../scripts/test_repository_seo.py#L26>) |
+| function | `def test_source_available_project_cannot_require_open_source_topic(self) -> None:` | Prevent SEO copy from overriding PolyForm license boundaries. | [`scripts/test_repository_seo.py:35`](<../../scripts/test_repository_seo.py#L35>) |
+| function | `def test_non_public_project_cannot_target_keywords(self) -> None:` | Avoid meaningless acquisition SEO on private and internal source. | [`scripts/test_repository_seo.py:46`](<../../scripts/test_repository_seo.py#L46>) |
+| function | `def test_license_detection_distinguishes_osi_and_polyform(self) -> None:` | Classify source availability separately from OSI open source. | [`scripts/test_repository_seo.py:57`](<../../scripts/test_repository_seo.py#L57>) |
